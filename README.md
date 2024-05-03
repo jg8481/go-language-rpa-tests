@@ -4,7 +4,7 @@
 
 ## Go Language test tools enhanced with RPA
 
-**“All testers do exploratory testing. Some do it more deliberately and in intentionally skilled ways.” - [Cem Kaner](https://13j276.p3cdn1.secureserver.net/pdfs/QAIExploring.pdf)**
+**"All testers do exploratory testing. Some do it more deliberately and in intentionally skilled ways." - [Cem Kaner](https://13j276.p3cdn1.secureserver.net/pdfs/QAIExploring.pdf)**
 
 **"Are you doing testing? Then you are already doing exploratory testing. Are you doing scripted testing? If you’re doing it responsibly, you are doing exploratory testing with scripting (and perhaps with checking)." - [James Bach](https://www.satisfice.com/blog/archives/1509)**
 
