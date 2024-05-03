@@ -92,3 +92,26 @@ The Slack bot is a part of the `generic-automation.robot` file, and will send a 
 The `DurationTrackingListener.py` and `TimeTrackingListener.py` files use the Robot Framework Listener Interface to monitor the execution of all tests. Robot Framework's Listener Interface has many capapbilities, more details about it can be found in the links below.
 - https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#listener-interface
 - https://www.youtube.com/watch?v=lKu-9WKtYcg
+
+### [Automation Workflows] Tool Runner Script Options
+
+The `run-go-rpa-tests.sh` script is a tool runner script that can run all of the above workflows in a Docker container. The script has the following options for running on a local work station or in GitHub Actions CI.
+
+```
+You can view a help menu (without triggering any automation) by running 'bash ./run-go-rpa-tests.sh -h' or 'bash ./run-go-rpa-tests.sh --help'
+
+bash ./run-go-rpa-tests.sh Stop-Containers-And-Build-Docker-Container-With-Compose
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Model-Based-Tests
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker
+
+The following command is only used for GitHub Actions CI/CD automation.
+bash ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker
+
+The above command can be used with the following 'docker build' and 'docker run' commands.
+docker build . --file Dockerfile.TestRunner -t test-runner
+docker run -it --rm -v ${PWD}:/test --workdir /test test-runner /bin/bash ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker
+```

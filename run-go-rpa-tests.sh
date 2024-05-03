@@ -190,6 +190,51 @@ if [ "$1" == "Manual-Scripted-Tests-In-Docker" ]; then
   echo "This test run ended on $TIMESTAMP2."
 fi
 
+if [ "$1" == "GitHub-CI-Tests-In-Docker" ]; then
+  echo
+  echo "------------------------------------[[[[ GitHub-CI-Tests-In-Docker ]]]]------------------------------------"
+  echo
+  echo "This GitHub-CI-Tests-In-Docker script is running inside a Docker container. This run started on $TIMESTAMP."
+  echo
+  echo "The following process will setup prism for basic API functional tests."
+  echo
+  rm -rf /tests/resources/api-application.log
+  curl -L https://raw.githack.com/stoplightio/prism/master/install | sh
+  prism -h
+  nohup prism mock -h 0.0.0.0 ./petstore.oas3.yaml > ./resources/api-application.log &
+  ls -la
+  echo
+  echo "The following Go Language process will run the functional-tests_test.go file using the 'go test' built-in test tool. The 'go test' results are shown in JSON output below."
+  echo
+  go version
+  go get 
+  go test -v -json functional-tests_test.go > ./resources/go-test-output.json
+  sleep 3
+  cat ./resources/go-test-output.json | jq | grep ": Test" > ./resources/go-test-console-results.log
+  cat ./resources/go-test-console-results.log
+  cp ./resources/go-test-console-results.log ./results/go-test-console-results.log
+  echo
+  echo "The following RPA process will analyze the 'go test' results and generate a useful HTML test log."
+  echo
+  robot --include Functional_Tests_Analysis --listener ./resources/TimeTrackingListener.py --listener ./resources/DurationTrackingListener.py --report NONE --log go-test-api-functional-test-log.html --output go-test-api-functional-test-output.xml -d ./results ./generic-automation.robot
+  sleep 3
+  echo
+  echo "The following process will setup prism for basic load tests through a chaos proxy using the toxiproxy tool."
+  echo
+  toxiproxy-server > ./resources/toxiproxy.log 2>1 &
+  toxiproxy-cli create exploratory-testing-proxy -l 127.0.0.1:8080 -u 0.0.0.0:4010 >> ./resources/toxiproxy.log 2>1 &
+  toxiproxy-cli toxic add -t bandwidth -a rate=100 exploratory-testing-proxy  >> ./resources/toxiproxy.log 2>1 &
+  # toxiproxy-cli toxic add -t slow_close -a delay=1000 exploratory-testing-proxy >> ./resources/toxiproxy.log 2>1 &
+  # toxiproxy-cli toxic add -t reset_peer -a timeout=1000000 exploratory-testing-proxy  >> ./resources/toxiproxy.log 2>1 &
+  sleep 3
+  echo
+  echo "The following RPA process will run two types of Vegeta load tests."
+  echo
+  robot --include Load_Tests --listener ./resources/TimeTrackingListener.py --listener ./resources/DurationTrackingListener.py --report NONE --log chaos-proxy-load-tests-log.html --output chaos-proxy-load-tests-output.xml -d ./results ./generic-automation.robot 
+  TIMESTAMP2=$(date)
+  echo "This test run ended on $TIMESTAMP2."
+fi
+
 usage_explanation() {
   echo
   echo
@@ -209,6 +254,13 @@ usage_explanation() {
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker"
+  echo
+  echo "The following command is only used for GitHub Actions CI/CD automation."
+  echo "bash ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker"
+  echo 
+  echo "The above command can be used with the following 'docker build' and 'docker run' commands." 
+  echo "docker build . --file Dockerfile.TestRunner -t test-runner"
+  echo "docker run -it --rm -v ${PWD}:/test --workdir /test test-runner /bin/bash ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker"
   echo
   echo
 }
