@@ -98,6 +98,16 @@ GO TEST FUNCTIONAL TESTS - POST /USER : Analyze the Go Httpstat functional test 
 
 ## --> Generic Keywords
 
+Create Base64 JQ Output From Given String
+    [Arguments]    ${STRING_INPUT}
+    ${BASE64_OUTPUT}=    Run    echo -n '${STRING_INPUT}' | jq -r '@base64'
+    RETURN    ${BASE64_OUTPUT}
+
+Create Base64 JQ Output From Given File
+    [Arguments]    ${FILE_NAME_INPUT}
+    ${BASE64_OUTPUT}=    Run    cat ${EXECDIR}/resources/${FILE_NAME_INPUT} | jq -r '@base64'
+    RETURN    ${BASE64_OUTPUT}
+
 Automation Section For Slack Notifications
     [Arguments]    ${AUTOMATION_SECTION}
     Set Suite Variable    ${AUTOMATION_SECTION_NAME}    ${AUTOMATION_SECTION}
