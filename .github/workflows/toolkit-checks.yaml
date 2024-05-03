@@ -7,8 +7,7 @@ on:
 
 jobs:
 
-  run-tests:
-
+  run-functional-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 60  
     steps:
@@ -21,4 +20,32 @@ jobs:
       run: |
         ls -la
         bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests
-        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs         
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs   
+
+  run-load-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        ls -la
+        bash ./run-go-rpa-tests.sh Stop-Containers-And-Build-Docker-Container-With-Compose
+    - name: Run the Docker container
+      run: |
+        ls -la
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests
+
+  run-model-based-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        ls -la
+        bash ./run-go-rpa-tests.sh Stop-Containers-And-Build-Docker-Container-With-Compose
+    - name: Run the Docker container
+      run: |
+        ls -la
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Model-Based-Tests     
