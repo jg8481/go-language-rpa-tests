@@ -21,8 +21,10 @@ import (
 //
 // go run vegeta-load-test-runner.go -rate 100 -duration 5s -url https://blazedemo.com/index.php -method GET
 //
-// echo -n '{"userId": 1}' | base64 # generates this base64 string... eyJ1c2VySWQiOiAxfQ==
-// go run vegeta-load-test-runner.go -url https://jsonplaceholder.typicode.com/posts -body 'eyJ1c2VySWQiOiAxfQ==' -method POST
+// echo -n '{"userId": 1}' | jq -r '@base64' # generates this base64 string... eyJ1c2VySWQiOjF9
+// cat ./resources/test-data1.json | jq -r '@base64' # generates a base64 string from a file
+//
+// go run vegeta-load-test-runner.go -url https://jsonplaceholder.typicode.com/posts -body 'eyJ1c2VySWQiOjF9' -method POST
 //
 // :: Demonstration Run ::
 // A user can run a quick demonstration with "urlParameter" defaulted to https://blazedemo.com/index.php...
