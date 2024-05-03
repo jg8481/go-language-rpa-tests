@@ -1,6 +1,6 @@
 # go-language-rpa-tests
 
-[![Toolkit Checks](https://github.com/jg8481/go-language-rpa-tests/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/go-language-rpa-tests/actions/workflows/toolkit-checks.yml)
+[![Toolkit Checks](https://github.com/jg8481/go-language-rpa-tests/actions/workflows/toolkit-checks.yaml/badge.svg)](https://github.com/jg8481/go-language-rpa-tests/actions/workflows/toolkit-checks.yaml)
 
 ![Robot-Gopher](./images/image1.png)
 
