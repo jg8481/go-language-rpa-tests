@@ -90,7 +90,7 @@ func main() {
 }
 
 // This is the newTargeter helper function. It generates targets with dynamic or static content based on provided parameters given through the command-line flags above.
-// You are probably thinking, "Why is this custom targeter expecting base64 strings?". This is because the Vegeta Lead Developer ("tsenart")
+// You are probably thinking, "Why is this custom targeter expecting base64 strings?". This is because the Vegeta Lead Developer (GitHub username is "tsenart")
 // is expecting a base64 string in the body parameter. The developer documented this requirement in the following link found in the README.md file...
 // https://github.com/tsenart/vegeta?tab=readme-ov-file#json-format
 func newTargeter(urlParameter, methodParameter, encodedBody string) vegeta.Targeter {
