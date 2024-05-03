@@ -161,7 +161,7 @@ if [ "$1" == "Manual-Scripted-Tests-In-Docker" ]; then
   prism -h
   nohup prism mock -h 0.0.0.0 /tests/petstore.oas3.yaml > /tests/resources/api-application.log &
   sleep 3
-  toxiproxy-server > /tests/resources/api-application.log 2>1 &
+  toxiproxy-server > /tests/resources/toxiproxy.log 2>1 &
   toxiproxy-cli create exploratory-testing-proxy -l 127.0.0.1:8080 -u 0.0.0.0:4010 >> /tests/resources/toxiproxy.log 2>1 &
   toxiproxy-cli toxic add -t bandwidth -a rate=100 exploratory-testing-proxy  >> /tests/resources/toxiproxy.log 2>1 &
   # toxiproxy-cli toxic add -t slow_close -a delay=1000 exploratory-testing-proxy >> /tests/resources/toxiproxy.log 2>1 &
