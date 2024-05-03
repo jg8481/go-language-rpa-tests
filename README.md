@@ -65,7 +65,7 @@ Windows users can run the following commands.
 - `docker-compose -f docker-compose.yml build`
 - `docker-compose run docker-test-runner run-go-rpa-tests.sh Start-Chaos-Proxy-Load-Tests`
 
-### [Model-based Tests] Graphwalker + Radamsa
+### [Model-based Tests] Graphwalker + Radamsa + Toxiproxy
 
 The Model-based Tests are handled by the `generic-automation.robot` and `GraphwalkerModel.graphml` files. In addition to the `toxiproxy` Chaos Proxy automation mentioned above, the Graphwalker Model-based Tests displayed in the screenshot below use the `httpstat-test-runner.go` file and a Mutational Fuzzer called [Radamsa](https://gitlab.com/akihe/radamsa).
 
