@@ -110,7 +110,7 @@ bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-T
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker
 
-The following command is only used for GitHub Actions CI/CD automation.
+The following command is designed for GitHub Actions CI/CD automation.
 bash ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker
 
 The above command can be used with the following 'docker build' and 'docker run' commands.
