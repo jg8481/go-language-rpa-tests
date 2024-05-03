@@ -79,4 +79,4 @@ EXPOSE 4010
 ADD run-go-rpa-tests.sh /usr/local/bin/run-go-rpa-tests.sh
 RUN chmod +x /usr/local/bin/run-go-rpa-tests.sh
 WORKDIR /test
-CMD ["bash", "-c", "run-go-rpa-tests.sh", "GitHub-CI-Tests-In-Docker"]
+ENTRYPOINT ["run-go-rpa-tests.sh", "GitHub-CI-Tests-In-Docker"]
