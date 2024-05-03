@@ -33,7 +33,10 @@ All of the tests will be targeting a `prism` mock API server through a TCP Chaos
 - https://github.com/stoplightio/prism/tree/master/docs/getting-started
 - https://github.com/Shopify/toxiproxy?tab=readme-ov-file#usage
 
-The `generic-automation.robot` file (combined with the `ToxiproxyChaosTestLibrary.py
+The `generic-automation.robot` file uses the `ToxiproxyChaosTestLibrary.py` to create a `create exploratory-testing-proxy` that will concurrently run the following "toxics". In `toxiproxy` a "toxic" is the [Chaos Testing mechanism](https://principlesofchaos.org/) that is challenging the server's resilience by simulating real-world network problems.
+- [latency](https://github.com/Shopify/toxiproxy?tab=readme-ov-file#latency)
+- [bandwidth](https://github.com/Shopify/toxiproxy?tab=readme-ov-file#bandwidth)
+- [slow_close](https://github.com/Shopify/toxiproxy?tab=readme-ov-file#slow_close)
 
 ### [Functional Tests] Go Test + HTTPStat
 
