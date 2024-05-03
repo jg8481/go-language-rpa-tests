@@ -48,8 +48,8 @@ The results of the `go test` runner is set to provide JSON output. The following
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs`
 
 Optionally, the `httpstat-test-runner.go` file can be used for hands-on exploratory testing using the following commands. 
-- (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Checks-Inside-Docker`
-- (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Checks-Inside-Docker`
+- (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker`
+- (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Scripted-Tests-In-Docker`
 
 ### [Load Tests] Vegeta 
 

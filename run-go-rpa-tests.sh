@@ -46,7 +46,7 @@ if [ "$1" == "Run-Specific-Tests-Inside-Docker" ]; then
   docker-compose -f docker-compose.yml build
   docker-compose run docker-test-runner run-go-rpa-tests.sh "$2"
   ## Un-comment the line below to manually explore or debug any tests in the Go Language files or the API mock/proxy tools. Please comment out the line above if you need to only run the tesing and debugging script below.
-  #docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Tests-Inside-Docker
+  #docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Scripted-Tests-In-Docker
   docker stop $(docker ps -a -q) &&
   docker rm $(docker ps -a -q)
   docker compose -f docker-compose.yml down
@@ -150,11 +150,11 @@ if [ "$1" == "Start-All-Tests" ]; then
   echo "This test run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Manual-Tests-Inside-Docker" ]; then
+if [ "$1" == "Manual-Scripted-Tests-In-Docker" ]; then
   echo
-  echo "------------------------------------[[[[ Manual-Tests-Inside-Docker ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Manual-Scripted-Tests-In-Docker ]]]]------------------------------------"
   echo
-  echo "This Manual-Tests-Inside-Docker script is running inside a Docker container. This run started on $TIMESTAMP."
+  echo "This Manual-Scripted-Tests-In-Docker script is running inside a Docker container. This run started on $TIMESTAMP."
   echo
   rm -rf /tests/resources/api-application.log
   curl -L https://raw.githack.com/stoplightio/prism/master/install | sh
@@ -208,7 +208,7 @@ usage_explanation() {
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests"
-  echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Tests-Inside-Docker"
+  echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker"
   echo
   echo
 }
