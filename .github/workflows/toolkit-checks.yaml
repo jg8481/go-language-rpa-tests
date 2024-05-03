@@ -20,4 +20,4 @@ jobs:
     - name: Run the Docker container
       run: |
         ls -la
-        docker run -d --rm --name run-go-rpa-tests -v ${PWD}/run-go-rpa-tests.sh:/run-go-rpa-tests.sh test-runner /bin/bash -c ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker      
+        docker run --rm --name run-go-rpa-tests -v ${PWD}/run-go-rpa-tests.sh:/run-go-rpa-tests.sh test-runner /bin/bash -c ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker      
