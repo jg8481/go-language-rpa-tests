@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60  
     steps:
-    - uses: KengoTODA/actions-setup-docker-compose@v1
-    with:
-      version: '2.14.2'
+    - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
+        docker-compose -h
+        docker compose -h
         ls -la
         bash ./run-go-rpa-tests.sh Stop-Containers-And-Build-Docker-Container-With-Compose
     - name: Run the Docker container
       run: |
         ls -la
-        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests     
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests       
