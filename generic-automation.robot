@@ -59,7 +59,7 @@ VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connec
 
 VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
     [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
-    Automation Section For Slack Notifications    VVEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS
+    Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS
     Log Lines To Console
     Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order/9
     Log Lines To Console
@@ -117,7 +117,7 @@ Send Short Message Through Slack After Any Automation Failures
     ## To use this slacktee Slack bot automation, you must set up your own ".slacktee" config file using the given "template.slacktee".
     ## The advantage of slacktee is any programming language, Linux Shell, or automation framework that can run on Linux can utilize it to quickly create a simple Slack bot. It can quickly turn tests into monitoring processes.
     ##
-    ## The folowing keyword will demonstrate slacktee...
+    ## The following keyword will demonstrate slacktee...
     [Arguments]    ${TEST_NAME}    ${TEST_ENVIRONMENT}
     Run Process    echo "The ${TEST_NAME} failed in the ${TEST_ENVIRONMENT} environment. The automation section that failed was --> ${AUTOMATION_SECTION_NAME}" | slacktee.sh -i :nerd_face: --plain-text --config ${EXECDIR}/resources/.slacktee    shell=True    timeout=20s    on_timeout=continue
 
