@@ -1,6 +1,6 @@
 # go-language-rpa-tests
 
-![Robot-Gopher](./image1.png)
+![Robot-Gopher](./images/image1.png)
 
 ## Go Language test tools enhanced with RPA
 
@@ -58,7 +58,7 @@ Windows users can run the following command.
 
 The Model-based Tests are handled by the `generic-automation.robot` and `GraphwalkerModel.graphml` files. In addition to the `toxiproxy` Chaos Proxy automation mentioned above, the Graphwalker Model-based Tests displayed in the screenshot below use the `httpstat-test-runner.go` file and a Mutational Fuzzer called [Radamasa](https://gitlab.com/akihe/radamsa).
 
-![Graphwalker](./image2.png)
+![Graphwalker](./images/image2.png)
 
 For MacOS and Linux users, you can run these Model-based Tests with the following command from a terminal.
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Graphwalker-Model-Based-Tests`
@@ -75,9 +75,9 @@ More information about Model-based Testing can be found in the links below.
 
 The Slack bot is a part of the `generic-automation.robot` file, and will send a Slack message using [slacktee](https://github.com/coursehero/slacktee) when any tests fail. The screenshots below demonstrate how a Model-based Test failure is sent to a specific Slack channel.
 
-![Test Failure](./image3.png)
+![Test Failure](./images/image3.png)
 
-![Slack](./image4.png)
+![Slack](./images/image4.png)
 
 The `DurationTrackingListener.py` and `TimeTrackingListener.py` files use the Robot Framework Listener Interface to monitor the execution of all tests. Robot Framework's Listener Interface has many capapbilities, more details about it can be found in the links below.
 - https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#listener-interface
