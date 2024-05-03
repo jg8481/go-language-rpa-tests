@@ -36,7 +36,8 @@ All of the tests will be targeting a `prism` mock API server through a TCP Chaos
 The Functional Tests are handled by the `functional-tests_test.go` and `httpstat-test-runner.go` files. For MacOS and Linux users, you can run these tests with the following command from a terminal.
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests`
 
-Windows users can run the following command.
+Windows users can run the following commands.
+- `docker-compose -f docker-compose.yml build`
 - `docker-compose run docker-test-runner run-go-rpa-tests.sh Start-Go-Language-Functional-Tests`
 
 The results of the `go test` runner is set to provide JSON output. The following script can analyze the JSON results and generate clearer results in an HTML log file.
@@ -44,14 +45,15 @@ The results of the `go test` runner is set to provide JSON output. The following
 
 Optionally, the `httpstat-test-runner.go` file can be used for hands-on exploratory testing using the following commands. 
 - (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Tests-Inside-Docker`
-- (Windows users) `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Tests-Inside-Docker`
+- (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Tests-Inside-Docker`
 
 ### [Load Tests] Vegeta 
 
 The Load Tests are handled by the `vegeta-load-test-runner.go` and `VegetaLoadTestLibrary.py` files. The script below runs two types of Load Tests, (1) a ramp-up load test runner and (2) a cusomizable load test runner. All of the Load Tests go through `toxiproxy` first before reaching the `prism` mock server.
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests`
 
-Windows users can run the following command.
+Windows users can run the following commands.
+- `docker-compose -f docker-compose.yml build`
 - `docker-compose run docker-test-runner run-go-rpa-tests.sh Start-Chaos-Proxy-Load-Tests`
 
 ### [Model-based Tests] Graphwalker + Radamsa
@@ -63,7 +65,8 @@ The Model-based Tests are handled by the `generic-automation.robot` and `Graphwa
 For MacOS and Linux users, you can run these Model-based Tests with the following command from a terminal.
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Graphwalker-Model-Based-Tests`
 
-Windows users can run the following command.
+Windows users can run the following commands.
+- `docker-compose -f docker-compose.yml build`
 - `docker-compose run docker-test-runner run-go-rpa-tests.sh Start-Graphwalker-Model-Based-Tests`
 
 More information about Model-based Testing can be found in the links below.
