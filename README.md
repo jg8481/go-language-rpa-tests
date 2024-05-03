@@ -56,7 +56,7 @@ Optionally, the `httpstat-test-runner.go` file can be used for hands-on explorat
 - (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker`
 - (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Scripted-Tests-In-Docker`
 
-### [Load Tests] Vegeta 
+### [Load Tests] Vegeta + Toxiproxy
 
 The Load Tests are handled by the `vegeta-load-test-runner.go` and `VegetaLoadTestLibrary.py` files. The script below runs two types of Load Tests, (1) a ramp-up load test runner and (2) a cusomizable load test runner. All of the Load Tests go through `toxiproxy` first before reaching the `prism` mock server.
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests`
