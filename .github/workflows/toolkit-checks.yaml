@@ -10,10 +10,14 @@ jobs:
   run-tests:
 
     runs-on: ubuntu-latest
-
+    timeout-minutes: 60  
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image and run the Docker container
+    - name: Build the Docker image
       run: |
+        ls -la
         docker build . --file Dockerfile.TestRunner -t test-runner
-        docker run -d --rm --name run-go-rpa-tests -v ${PWD}/run-go-rpa-tests.sh:/run-go-rpa-tests.sh test-runner /bin/bash -c ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker       
+    - name: Run the Docker container
+      run: |
+        ls -la
+        docker run -d --rm --name run-go-rpa-tests -v ${PWD}/run-go-rpa-tests.sh:/run-go-rpa-tests.sh test-runner /bin/bash -c ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker      
