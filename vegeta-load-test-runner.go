@@ -21,8 +21,9 @@ import (
 //
 // go run vegeta-load-test-runner.go -rate 100 -duration 5s -url https://blazedemo.com/index.php -method GET
 //
-// echo -n '{"userId": 1}' | jq -r '@base64' # generates this base64 string... eyJ1c2VySWQiOjF9
-// cat ./resources/test-data1.json | jq -r '@base64' # generates a base64 string from a file
+// echo -n '{"userId": 1}' | jq -r '@base64' ## <-- jq generates this base64 string... eyJ1c2VySWQiOjF9
+// echo -n 'eyJ1c2VySWQiOjF9' | base64 -d ## <-- use this to visually check the data before using it
+// cat ./resources/test-data1.json | jq -r '@base64' ## generates a base64 string from a file
 //
 // go run vegeta-load-test-runner.go -url https://jsonplaceholder.typicode.com/posts -body 'eyJ1c2VySWQiOjF9' -method POST
 //
