@@ -1,0 +1,7 @@
+webhook_url=REPLACE_THIS
+upload_token=REPLACE_THIS
+tmp_dir="/tests"
+channel=REPLACE_THIS
+username="Robot-Framework-Bot"
+icon=":exclamation:"
+attachment="blue"

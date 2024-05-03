@@ -1,0 +1,2735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-02T20:58:31.952179" rpa="false" schemaversion="5">
+<suite id="s1" name="Generic-Automation" source="/tests/generic-automation.robot">
+<test id="s1-t1" name="MODEL-BASED CHAOS TESTS RUNNER : Run the Graphwalker Path File for the Model-Based Chaos Tests. The Graphwalker Model combines API Functional Test, Chaos Test, and Mutational Fuzz Test strategies." line="46">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-02T20:58:32.029913" level="INFO">${AUTOMATION_SECTION_NAME} = MODEL-BASED CHAOS TESTS RUNNER</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.028868" elapsed="0.001124"/>
+</kw>
+<arg>MODEL-BASED CHAOS TESTS RUNNER</arg>
+<status status="PASS" start="2024-05-02T20:58:32.027569" elapsed="0.002556"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.030801" elapsed="0.000260"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:32.030396" elapsed="0.000784"/>
+</kw>
+<kw name="Run Graphwalker Model Based Tests">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:32.032296" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/GraphwalkerPath.csv"&gt;/tests/resources/GraphwalkerPath.csv&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:58:32.033361" level="INFO">${GRAPHWALKER_CSV_FILE_CONTENTS} = send_get_request_to_user_endpoint
+check_api_response_log_files
+send_post_request_to_user_endpoint
+check_server_log_files
+send_get_request_to_order_endpoint
+check_api_response_log_files
+send_post_reque...</msg>
+<var>${GRAPHWALKER_CSV_FILE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/${GRAPHWALKER_CSV_FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.032064" elapsed="0.001339"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:58:32.033843" level="INFO">send_get_request_to_user_endpoint
+check_api_response_log_files
+send_post_request_to_user_endpoint
+check_server_log_files
+send_get_request_to_order_endpoint
+check_api_response_log_files
+send_post_request_to_user_endpoint
+check_server_log_files
+send_get_request_to_pets_endpoint
+check_api_response_log_files
+send_post_request_to_order_endpoint
+check_server_log_files
+send_post_request_to_user_endpoint_with_fuzzed_data
+check_server_log_files
+restart_server
+check_server_log_files
+send_get_request_to_pets_endpoint
+check_api_response_log_files
+send_post_request_to_user_endpoint
+check_server_log_files
+send_get_request_to_pets_endpoint
+check_api_response_log_files
+add_toxiproxy_limited_bandwidth_then_send_user_get_request
+check_api_response_log_files
+add_toxiproxy_latency_then_send_user_get_request
+check_api_response_log_files
+send_post_request_to_order_endpoint
+check_server_log_files
+send_post_request_to_user_endpoint_with_fuzzed_data
+check_server_log_files
+send_get_request_to_order_endpoint
+check_api_response_log_files
+send_post_request_to_user_endpoint
+check_server_log_files
+send_post_request_to_order_endpoint_with_fuzzed_data
+check_server_log_files
+send_get_request_to_order_endpoint
+check_api_response_log_files
+send_post_request_to_order_endpoint
+check_server_log_files
+send_get_request_to_pets_endpoint
+check_api_response_log_files
+add_toxiproxy_slow_close_then_send_user_get_request
+check_api_response_log_files
+</msg>
+<arg>${GRAPHWALKER_CSV_FILE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.033673" elapsed="0.000238"/>
+</kw>
+<kw name="Get Graphwalker Path Keywords From CSV File">
+<kw name="Split To Lines" owner="String">
+<msg time="2024-05-02T20:58:32.034682" level="INFO">44 lines returned</msg>
+<msg time="2024-05-02T20:58:32.034810" level="INFO">@{GRAPHWALKER_LINES} = [ send_get_request_to_user_endpoint | check_api_response_log_files | send_post_request_to_user_endpoint | check_server_log_files | send_get_request_to_order_endpoint | check_api_response_log_files | s...</msg>
+<var>@{GRAPHWALKER_LINES}</var>
+<arg>${GRAPHWALKER_CSV_CONTENT}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.034505" elapsed="0.000333"/>
+</kw>
+<return>
+<value>@{GRAPHWALKER_LINES}</value>
+<status status="PASS" start="2024-05-02T20:58:32.034911" elapsed="0.000069"/>
+</return>
+<msg time="2024-05-02T20:58:32.035168" level="INFO">@{GRAPHWALKER_PATH_LINES} = [ send_get_request_to_user_endpoint | check_api_response_log_files | send_post_request_to_user_endpoint | check_server_log_files | send_get_request_to_order_endpoint | check_api_response_log_files | s...</msg>
+<var>@{GRAPHWALKER_PATH_LINES}</var>
+<arg>${GRAPHWALKER_CSV_FILE_CONTENTS}</arg>
+<status status="PASS" start="2024-05-02T20:58:32.034088" elapsed="0.001109"/>
+</kw>
+<kw name="Run Graphwalker Path Keywords">
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_user_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:32.037359" level="INFO" html="true">File '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.036838" elapsed="0.000593"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:32.038866" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/user/vitae" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.037824" elapsed="10.924121"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.037578" elapsed="10.924810"/>
+</kw>
+<arg>http://0.0.0.0:8080/user/vitae</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T20:58:32.036542" elapsed="10.926027"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:32.036314" elapsed="10.926421"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:58:32.035927" elapsed="10.926871"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_user_endpoint</var>
+<status status="PASS" start="2024-05-02T20:58:32.035804" elapsed="10.927060"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:42.965754" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:58:42.967484" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/user/vitae
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"username":"string","firstName":"string","lastName":"string","emai...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.965299" elapsed="0.002228"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:58:42.968917" level="INFO">--------------
+URL: http://0.0.0.0:8080/user/vitae
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"username":"string","firstName":"string","lastName":"string","email":"string","password":"string","phone":"string","userStatus":-2147483648}
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10088 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10089 ms
+Total:          10089 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.968626" elapsed="0.000418"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.969283" elapsed="0.000224"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:42.964868" elapsed="0.004823"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.963789" elapsed="0.005980"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T20:58:42.963317" elapsed="0.006517"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:42.972188" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.971198" elapsed="0.001074"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:42.973804" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/user" -method "POST" -body '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.972686" elapsed="10.399250"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.972442" elapsed="10.399743"/>
+</kw>
+<arg>http://0.0.0.0:8080/user</arg>
+<arg>POST</arg>
+<arg>'{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}'</arg>
+<status status="PASS" start="2024-05-02T20:58:42.970897" elapsed="10.401440"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:42.970540" elapsed="10.402022"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:58:42.970169" elapsed="10.402532"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint</var>
+<status status="PASS" start="2024-05-02T20:58:42.970020" elapsed="10.402769"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:53.374780" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:58:53.384558" level="INFO">${API_SERVER_LOG_CONTENTS} = [8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.374368" elapsed="0.010288"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:58:53.385442" level="INFO">[8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available&amp;status=available
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByTags?tags=dolores&amp;tags=quo
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/-6304864866955167
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets/-671133559964735
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByStatus?status=pending&amp;status=sold&amp;status=sold&amp;status=sold&amp;status=pending
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByTags?tags=sunt&amp;tags=sapiente&amp;tags=eaque&amp;tags=esse&amp;tags=optio
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/1870574458162269
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/1810709039956481
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/pets/1262460401408529
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/6726560554109201/uploadImage
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/inventory
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/store/order
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/order/3
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/store/order/760221951681868
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithArray
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithList
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/login?username=tenetur&amp;password=fugiat
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/logout
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/impedit
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/user/necessitatibus
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/user/aperiam
+[8:57:53 PM] › [CLI] ▶  start     Prism is listening on http://0.0.0.0:4010
+[8:58:32 PM] › [HTTP SERVER] get /user/vitae ℹ  info      Request received
+[8:58:32 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:32 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:32 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:43 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:58:43 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:43 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:43 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.385010" elapsed="0.009137"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.394555" elapsed="0.000670"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:53.373772" elapsed="0.021671"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.373257" elapsed="0.022411"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T20:58:53.373043" elapsed="0.022826"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_order_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:53.400751" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.399199" elapsed="0.001987"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:58:53.403790" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order/9" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.402048" elapsed="11.073867"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.401624" elapsed="11.074652"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order/9</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T20:58:53.398682" elapsed="11.077757"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:58:53.397876" elapsed="11.078673"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:58:53.396786" elapsed="11.079824"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T20:58:53.396501" elapsed="11.080190"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:04.478695" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:59:04.480726" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"20...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.478270" elapsed="0.002509"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:59:04.481213" level="INFO">--------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"2019-08-24T14:15:22Z","status":"placed","complete":false}
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10036 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10036 ms
+Total:          10037 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.480977" elapsed="0.000308"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.482785" elapsed="0.000328"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:04.477840" elapsed="0.005411"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.477194" elapsed="0.006147"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T20:59:04.476979" elapsed="0.006407"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:04.485217" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.484491" elapsed="0.000809"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:04.487066" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/user" -method "POST" -body '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.485703" elapsed="10.370697"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.485520" elapsed="10.371065"/>
+</kw>
+<arg>http://0.0.0.0:8080/user</arg>
+<arg>POST</arg>
+<arg>'{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}'</arg>
+<status status="PASS" start="2024-05-02T20:59:04.484225" elapsed="10.372722"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:04.484006" elapsed="10.373356"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:04.483654" elapsed="10.373820"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint</var>
+<status status="PASS" start="2024-05-02T20:59:04.483524" elapsed="10.374029"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:14.860150" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:59:14.864200" level="INFO">${API_SERVER_LOG_CONTENTS} = [8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.859841" elapsed="0.004435"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:59:14.864897" level="INFO">[8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available&amp;status=available
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByTags?tags=dolores&amp;tags=quo
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/-6304864866955167
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets/-671133559964735
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByStatus?status=pending&amp;status=sold&amp;status=sold&amp;status=sold&amp;status=pending
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByTags?tags=sunt&amp;tags=sapiente&amp;tags=eaque&amp;tags=esse&amp;tags=optio
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/1870574458162269
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/1810709039956481
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/pets/1262460401408529
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/6726560554109201/uploadImage
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/inventory
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/store/order
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/order/3
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/store/order/760221951681868
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithArray
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithList
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/login?username=tenetur&amp;password=fugiat
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/logout
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/impedit
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/user/necessitatibus
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/user/aperiam
+[8:57:53 PM] › [CLI] ▶  start     Prism is listening on http://0.0.0.0:4010
+[8:58:32 PM] › [HTTP SERVER] get /user/vitae ℹ  info      Request received
+[8:58:32 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:32 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:32 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:43 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:58:43 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:43 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:43 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:54 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[8:58:54 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:54 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:54 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:04 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:59:04 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:04 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:04 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.864536" elapsed="0.005104"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.869999" elapsed="0.000478"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:14.859475" elapsed="0.011255"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.858434" elapsed="0.012450"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T20:59:14.857844" elapsed="0.013187"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_pets_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:14.880018" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.874468" elapsed="0.006206"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:14.885723" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.881828" elapsed="10.698704"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.881292" elapsed="10.699418"/>
+</kw>
+<arg>http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T20:59:14.872903" elapsed="10.707945"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:14.872575" elapsed="10.708473"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:14.871710" elapsed="10.709430"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_pets_endpoint</var>
+<status status="PASS" start="2024-05-02T20:59:14.871402" elapsed="10.709809"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:25.583207" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:59:25.584660" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.582709" elapsed="0.002000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:59:25.585889" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       1 ms
+TLS handshake:        0 ms
+Server processing: 10069 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           1 ms
+Pre Transfer:      1 ms
+Start Transfer: 10070 ms
+Total:          10071 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.585648" elapsed="0.000321"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.586144" elapsed="0.000311"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:25.582391" elapsed="0.004184"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.581754" elapsed="0.004890"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T20:59:25.581444" elapsed="0.005256"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_order_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:25.588700" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.587942" elapsed="0.000853"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:25.590291" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order" -method "POST" -body '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.589255" elapsed="10.445096"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.588978" elapsed="10.445519"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order</arg>
+<arg>POST</arg>
+<arg>'{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}'</arg>
+<status status="PASS" start="2024-05-02T20:59:25.587662" elapsed="10.446956"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:25.587404" elapsed="10.447299"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:25.586985" elapsed="10.447775"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T20:59:25.586852" elapsed="10.447957"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:36.036068" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:59:36.037094" level="INFO">${API_SERVER_LOG_CONTENTS} = [8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.035856" elapsed="0.001289"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:59:36.037555" level="INFO">[8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available&amp;status=available
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByTags?tags=dolores&amp;tags=quo
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/-6304864866955167
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets/-671133559964735
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByStatus?status=pending&amp;status=sold&amp;status=sold&amp;status=sold&amp;status=pending
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByTags?tags=sunt&amp;tags=sapiente&amp;tags=eaque&amp;tags=esse&amp;tags=optio
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/1870574458162269
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/1810709039956481
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/pets/1262460401408529
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/6726560554109201/uploadImage
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/inventory
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/store/order
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/order/3
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/store/order/760221951681868
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithArray
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithList
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/login?username=tenetur&amp;password=fugiat
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/logout
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/impedit
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/user/necessitatibus
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/user/aperiam
+[8:57:53 PM] › [CLI] ▶  start     Prism is listening on http://0.0.0.0:4010
+[8:58:32 PM] › [HTTP SERVER] get /user/vitae ℹ  info      Request received
+[8:58:32 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:32 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:32 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:43 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:58:43 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:43 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:43 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:54 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[8:58:54 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:54 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:54 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:04 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:59:04 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:04 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:04 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:15 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[8:59:15 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:15 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:15 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:26 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[8:59:26 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:26 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:26 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.037332" elapsed="0.000866"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.038359" elapsed="0.000183"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:36.035593" elapsed="0.003040"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.035223" elapsed="0.003463"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T20:59:36.035055" elapsed="0.003675"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint_with_fuzzed_data">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:36.040629" level="INFO">Running command 'echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; /tests/resources/mutational-fuzz-data-user-test.dat'.</msg>
+<arg>echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.039813" elapsed="0.011279"/>
+</kw>
+<arg>Run</arg>
+<arg>echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.039670" elapsed="0.011561"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:36.052379" level="INFO">Running command 'httpstat -o /tests/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @/tests/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user 2&gt;&amp;1'.</msg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.051626" elapsed="10.046663"/>
+</kw>
+<arg>Run</arg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.051430" elapsed="10.047087"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.102146" level="INFO">Running command 'TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.100853" elapsed="0.012988"/>
+</kw>
+<arg>Run</arg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.100436" elapsed="0.013576"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.115441" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.114534" elapsed="0.003060"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.114295" elapsed="0.003410"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.118912" level="INFO">Running command 'cat /tests/resources/mutational-fuzz-data-user-test.dat &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.118193" elapsed="0.004954"/>
+</kw>
+<arg>Run</arg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.117897" elapsed="0.005393"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.124530" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.123746" elapsed="0.002761"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.123532" elapsed="0.003111"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:36.039429" elapsed="10.087307"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:36.039022" elapsed="10.087780"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint_with_fuzzed_data</var>
+<status status="PASS" start="2024-05-02T20:59:36.038880" elapsed="10.087968"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.127929" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T20:59:46.128687" level="INFO">${API_SERVER_LOG_CONTENTS} = [8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.127778" elapsed="0.000950"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T20:59:46.129029" level="INFO">[8:57:53 PM] › [CLI] …  awaiting  Starting Prism…
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets?name=perferendis
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available&amp;status=available
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/findByTags?tags=dolores&amp;tags=quo
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/no_auth/pets/-6304864866955167
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/no_auth/pets/-671133559964735
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/pets
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByStatus?status=pending&amp;status=sold&amp;status=sold&amp;status=sold&amp;status=pending
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/findByTags?tags=sunt&amp;tags=sapiente&amp;tags=eaque&amp;tags=esse&amp;tags=optio
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/pets/1870574458162269
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/1810709039956481
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/pets/1262460401408529
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/pets/6726560554109201/uploadImage
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/inventory
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/store/order
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/store/order/3
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/store/order/760221951681868
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithArray
+[8:57:53 PM] › [CLI] ℹ  info      POST       http://0.0.0.0:4010/user/createWithList
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/login?username=tenetur&amp;password=fugiat
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/logout
+[8:57:53 PM] › [CLI] ℹ  info      GET        http://0.0.0.0:4010/user/impedit
+[8:57:53 PM] › [CLI] ℹ  info      PUT        http://0.0.0.0:4010/user/necessitatibus
+[8:57:53 PM] › [CLI] ℹ  info      DELETE     http://0.0.0.0:4010/user/aperiam
+[8:57:53 PM] › [CLI] ▶  start     Prism is listening on http://0.0.0.0:4010
+[8:58:32 PM] › [HTTP SERVER] get /user/vitae ℹ  info      Request received
+[8:58:32 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:32 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:32 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:43 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:58:43 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:43 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:43 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:58:54 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[8:58:54 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:58:54 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:58:54 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:04 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:59:04 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:04 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:04 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:15 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[8:59:15 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:15 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:15 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:26 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[8:59:26 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:26 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:26 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[8:59:36 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[8:59:36 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[8:59:36 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[8:59:36 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.128871" elapsed="0.000922"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.129927" elapsed="0.000265"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:46.127539" elapsed="0.002746"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.127206" elapsed="0.003132"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T20:59:46.127001" elapsed="0.003380"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="restart_server">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T20:59:46.132198" level="FAIL">Keyword 'OperatingSystem.Run' expected 1 argument, got 3.</msg>
+<arg>pkill prism</arg>
+<arg>&gt; /dev/null 2&gt;&amp;1; pgrep prism | xargs kill &gt; /dev/null 2&gt;&amp;1; killall prism</arg>
+<arg>&gt; /dev/null 2&gt;&amp;1</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="FAIL" start="2024-05-02T20:59:46.131293" elapsed="0.000973">Keyword 'OperatingSystem.Run' expected 1 argument, got 3.</status>
+</kw>
+<arg>Run</arg>
+<arg>pkill prism</arg>
+<arg>&gt; /dev/null 2&gt;&amp;1; pgrep prism | xargs kill &gt; /dev/null 2&gt;&amp;1; killall prism</arg>
+<arg>&gt; /dev/null 2&gt;&amp;1</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.131143" elapsed="0.001221"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-02T21:00:16.143585" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.132497" elapsed="30.011529"/>
+</kw>
+<kw name="Start Prism Mock Server" owner="PrismMockServerLibrary">
+<doc>Start the Prism tool and create a mock API server.</doc>
+<status status="PASS" start="2024-05-02T21:00:16.144680" elapsed="5.006618"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-02T21:00:51.153380" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-02T21:00:21.151704" elapsed="30.002189"/>
+</kw>
+<status status="PASS" start="2024-05-02T20:59:46.130873" elapsed="65.023386"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T20:59:46.130595" elapsed="65.023832"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">restart_server</var>
+<status status="PASS" start="2024-05-02T20:59:46.130492" elapsed="65.026514"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:00:51.159483" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:00:51.161772" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.159169" elapsed="0.002682"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:00:51.162359" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.162101" elapsed="0.000406"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.162715" elapsed="0.000343"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:00:51.158572" elapsed="0.004640"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.157805" elapsed="0.005498"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:00:51.157442" elapsed="0.005937"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_pets_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:00:51.166342" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.165151" elapsed="0.001301"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:00:51.168095" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.167009" elapsed="10.328530"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.166767" elapsed="10.329041"/>
+</kw>
+<arg>http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T21:00:51.164677" elapsed="10.331273"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:00:51.164281" elapsed="10.331770"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:00:51.163746" elapsed="10.332384"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_pets_endpoint</var>
+<status status="PASS" start="2024-05-02T21:00:51.163570" elapsed="10.332624"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:01.497561" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:01:01.499231" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.497380" elapsed="0.001898"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:01:01.499628" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10008 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10009 ms
+Total:          10009 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.499457" elapsed="0.000934"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.500574" elapsed="0.000294"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:01.497088" elapsed="0.003901"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.496612" elapsed="0.004445"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:01:01.496398" elapsed="0.004714"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:01.503223" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.502511" elapsed="0.000809"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:01.504566" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/user" -method "POST" -body '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.503780" elapsed="10.390058"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.503515" elapsed="10.390492"/>
+</kw>
+<arg>http://0.0.0.0:8080/user</arg>
+<arg>POST</arg>
+<arg>'{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}'</arg>
+<status status="PASS" start="2024-05-02T21:01:01.502156" elapsed="10.391980"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:01.501756" elapsed="10.392492"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:01.501383" elapsed="10.392941"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint</var>
+<status status="PASS" start="2024-05-02T21:01:01.501252" elapsed="10.393136"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:11.895768" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:01:11.897008" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.895538" elapsed="0.001532"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:01:11.897540" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.897287" elapsed="0.000940"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.899055" elapsed="0.000244"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:11.895250" elapsed="0.004167"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.894844" elapsed="0.004644"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:01:11.894620" elapsed="0.004924"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_pets_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:11.901740" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.900801" elapsed="0.001017"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:11.902845" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.902147" elapsed="10.317639"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.901979" elapsed="10.317977"/>
+</kw>
+<arg>http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T21:01:11.900489" elapsed="10.319595"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:11.900236" elapsed="10.320005"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:11.899916" elapsed="10.320411"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_pets_endpoint</var>
+<status status="PASS" start="2024-05-02T21:01:11.899692" elapsed="10.320701"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:01:22.221774" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:01:22.223362" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.221592" elapsed="0.001828"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:01:22.223796" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10009 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10009 ms
+Total:          10010 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.223616" elapsed="0.000249"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.224087" elapsed="0.000201"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:22.221299" elapsed="0.003098"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.220791" elapsed="0.003671"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:01:22.220598" elapsed="0.003916"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="add_toxiproxy_limited_bandwidth_then_send_user_get_request">
+<kw name="Remove All Three Toxics" owner="ToxiproxyChaosTestLibrary">
+<doc>Remove all three toxics from the exploratory-testing-proxy.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.225448" elapsed="5.016387"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-02T21:01:57.244674" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-02T21:01:27.242546" elapsed="30.002386"/>
+</kw>
+<kw name="Add Limited Bandwidth Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Limited Bandwidth Toxic to the Vegeta load tests. It will limit a connection to a maximum number of kilobytes per second.</doc>
+<status status="PASS" start="2024-05-02T21:01:57.245603" elapsed="5.008183"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:01:22.225121" elapsed="40.029159"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:01:22.224780" elapsed="40.029699"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">add_toxiproxy_limited_bandwidth_then_send_user_get_request</var>
+<status status="PASS" start="2024-05-02T21:01:22.224652" elapsed="40.029966"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:02.257366" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:02:02.259947" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.256975" elapsed="0.003037"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:02:02.260616" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10009 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10009 ms
+Total:          10010 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.260372" elapsed="0.001599"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.262385" elapsed="0.000340"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:02.256476" elapsed="0.006413"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.255547" elapsed="0.007437"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:02:02.255055" elapsed="0.008007"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="add_toxiproxy_latency_then_send_user_get_request">
+<kw name="Remove All Three Toxics" owner="ToxiproxyChaosTestLibrary">
+<doc>Remove all three toxics from the exploratory-testing-proxy.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.264306" elapsed="5.016482"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-02T21:02:37.281971" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-02T21:02:07.281305" elapsed="30.000839"/>
+</kw>
+<kw name="Add Latency Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Latency Toxic to the Vegeta load tests. It will add a delay to all data going through the proxy.</doc>
+<status status="PASS" start="2024-05-02T21:02:37.282465" elapsed="5.008565"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:02.263926" elapsed="40.027371"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:02.263514" elapsed="40.027914"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">add_toxiproxy_latency_then_send_user_get_request</var>
+<status status="PASS" start="2024-05-02T21:02:02.263354" elapsed="40.028181"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:42.294057" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:02:42.296113" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.293769" elapsed="0.002419"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:02:42.296952" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10009 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10009 ms
+Total:          10010 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.296493" elapsed="0.000556"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.297255" elapsed="0.000246"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:42.293172" elapsed="0.004466"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.292226" elapsed="0.005552"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:02:42.291940" elapsed="0.005912"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_order_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:42.300425" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.299440" elapsed="0.001585"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:42.302715" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order" -method "POST" -body '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.301570" elapsed="10.363085"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.301289" elapsed="10.363514"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order</arg>
+<arg>POST</arg>
+<arg>'{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}'</arg>
+<status status="PASS" start="2024-05-02T21:02:42.299032" elapsed="10.365886"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:42.298620" elapsed="10.366388"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:42.298208" elapsed="10.366864"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T21:02:42.298036" elapsed="10.367091"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:52.666441" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:02:52.668504" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.666261" elapsed="0.002301"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:02:52.668983" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:12 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:01:12 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:12 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:12 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:42 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:02:42 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:42 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:42 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.668758" elapsed="0.000820"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.669728" elapsed="0.000188"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:52.665979" elapsed="0.004033"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.665478" elapsed="0.004593"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:02:52.665312" elapsed="0.004806"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint_with_fuzzed_data">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:52.671922" level="INFO">Running command 'echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; /tests/resources/mutational-fuzz-data-user-test.dat'.</msg>
+<arg>echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.671180" elapsed="0.009456"/>
+</kw>
+<arg>Run</arg>
+<arg>echo '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.671021" elapsed="0.009745"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:02:52.681902" level="INFO">Running command 'httpstat -o /tests/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @/tests/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user 2&gt;&amp;1'.</msg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.681142" elapsed="10.016826"/>
+</kw>
+<arg>Run</arg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-user-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-user-test.dat http://0.0.0.0:8080/user</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.680956" elapsed="10.017239"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.700716" level="INFO">Running command 'TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.699061" elapsed="0.007778"/>
+</kw>
+<arg>Run</arg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.698700" elapsed="0.008360"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.708914" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.707776" elapsed="0.003619"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.707440" elapsed="0.004186"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.713210" level="INFO">Running command 'cat /tests/resources/mutational-fuzz-data-user-test.dat &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.712123" elapsed="0.006780"/>
+</kw>
+<arg>Run</arg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-user-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.711871" elapsed="0.007295"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.721322" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-user-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.719850" elapsed="0.004282"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-user-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.719415" elapsed="0.005109"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:02:52.670768" elapsed="10.053877"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:02:52.670358" elapsed="10.054358"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint_with_fuzzed_data</var>
+<status status="PASS" start="2024-05-02T21:02:52.670246" elapsed="10.054521"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.726064" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:02.727096" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.725878" elapsed="0.001282"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:02.727767" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:12 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:01:12 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:12 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:12 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:42 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:02:42 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:42 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:42 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:52 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:02:52 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:52 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:52 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.727401" elapsed="0.001824"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.730018" elapsed="0.002327"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:02.725573" elapsed="0.008232"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.725106" elapsed="0.009017"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:02.724952" elapsed="0.009355"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_order_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.737074" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.736126" elapsed="0.001059"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:02.738529" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order/9" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.737708" elapsed="10.319143"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.737469" elapsed="10.319508"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order/9</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T21:03:02.735768" elapsed="10.321298"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:02.735414" elapsed="10.321717"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:02.734862" elapsed="10.322320"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T21:03:02.734628" elapsed="10.322596"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:13.058302" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:13.059781" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"20...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.058154" elapsed="0.001670"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:13.060919" level="INFO">--------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"2019-08-24T14:15:22Z","status":"placed","complete":false}
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10006 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10006 ms
+Total:          10007 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.060001" elapsed="0.000983"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.061140" elapsed="0.000178"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:13.057930" elapsed="0.003481"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.057599" elapsed="0.003950"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:13.057370" elapsed="0.004243"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_user_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:13.063545" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.062884" elapsed="0.000757"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:13.064861" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/user" -method "POST" -body '{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.063972" elapsed="10.317665"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.063811" elapsed="10.318057"/>
+</kw>
+<arg>http://0.0.0.0:8080/user</arg>
+<arg>POST</arg>
+<arg>'{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}'</arg>
+<status status="PASS" start="2024-05-02T21:03:13.062620" elapsed="10.319361"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:13.062110" elapsed="10.319952"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:13.061839" elapsed="10.320280"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_user_endpoint</var>
+<status status="PASS" start="2024-05-02T21:03:13.061735" elapsed="10.320433"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:23.383343" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:23.384325" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.383148" elapsed="0.001226"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:23.384733" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:12 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:01:12 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:12 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:12 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:42 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:02:42 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:42 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:42 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:52 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:02:52 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:52 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:52 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:03 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[9:03:03 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:03 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:03 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:13 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:03:13 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:13 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:13 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.384542" elapsed="0.001302"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.386020" elapsed="0.000201"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:23.382835" elapsed="0.003480"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.382484" elapsed="0.003886"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:23.382334" elapsed="0.004080"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_order_endpoint_with_fuzzed_data">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:23.388086" level="INFO">Running command 'echo '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' | radamsa &gt; /tests/resources/mutational-fuzz-data-order-test.dat'.</msg>
+<arg>echo '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-order-test.dat</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.387428" elapsed="0.010701"/>
+</kw>
+<arg>Run</arg>
+<arg>echo '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' | radamsa &gt; ${EXECDIR}/resources/mutational-fuzz-data-order-test.dat</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.387273" elapsed="0.010998"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:23.399551" level="INFO">Running command 'httpstat -o /tests/resources/httpstat-response-mutational-fuzz-data-order-output.json -X POST -H 'Content-Type: application/json' -d @/tests/resources/mutational-fuzz-data-order-test.dat http://0.0.0.0:8080/store/order 2&gt;&amp;1'.</msg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-order-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-order-test.dat http://0.0.0.0:8080/store/order</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.398638" elapsed="10.021473"/>
+</kw>
+<arg>Run</arg>
+<arg>httpstat -o ${EXECDIR}/resources/httpstat-response-mutational-fuzz-data-order-output.json -X POST -H 'Content-Type: application/json' -d @${EXECDIR}/resources/mutational-fuzz-data-order-test.dat http://0.0.0.0:8080/store/order</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.398454" elapsed="10.021850"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.423407" level="INFO">Running command 'TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-order-test.dat -- Logged this on.... $TIMESTAMP :: ========" &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-order-endpoint.log'.</msg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-order-test.dat -- Logged this on.... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.422151" elapsed="0.008734"/>
+</kw>
+<arg>Run</arg>
+<arg>TIMESTAMP=$(date); echo "======== :: Fuzz Test Data Tracker for mutational-fuzz-data-order-test.dat -- Logged this on.... $TIMESTAMP :: ========" &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.421690" elapsed="0.009392"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.432877" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-order-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.431576" elapsed="0.004107"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.431322" elapsed="0.004577"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.437257" level="INFO">Running command 'cat /tests/resources/mutational-fuzz-data-order-test.dat &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-order-endpoint.log'.</msg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-order-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.436341" elapsed="0.006213"/>
+</kw>
+<arg>Run</arg>
+<arg>cat ${EXECDIR}/resources/mutational-fuzz-data-order-test.dat &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.436128" elapsed="0.006566"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.444033" level="INFO">Running command 'echo " " &gt;&gt; /tests/results/mutational-fuzz-data-targeted-at-order-endpoint.log'.</msg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.443212" elapsed="0.004989"/>
+</kw>
+<arg>Run</arg>
+<arg>echo " " &gt;&gt; ${EXECDIR}/results/mutational-fuzz-data-targeted-at-order-endpoint.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.442993" elapsed="0.005344"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:23.387015" elapsed="10.061420"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:23.386641" elapsed="10.061858"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_order_endpoint_with_fuzzed_data</var>
+<status status="PASS" start="2024-05-02T21:03:23.386535" elapsed="10.062013"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.449756" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:33.450906" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.449598" elapsed="0.001359"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:33.451339" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:12 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:01:12 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:12 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:12 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:42 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:02:42 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:42 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:42 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:52 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:02:52 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:52 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:52 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:03 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[9:03:03 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:03 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:03 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:13 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:03:13 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:13 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:13 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.451136" elapsed="0.001300"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.452591" elapsed="0.000189"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:33.449331" elapsed="0.003640"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.448969" elapsed="0.004070"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:33.448737" elapsed="0.004350"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_order_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.455059" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.454268" elapsed="0.000888"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:33.456228" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order/9" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.455524" elapsed="10.342639"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.455340" elapsed="10.342963"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order/9</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T21:03:33.453982" elapsed="10.344425"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:33.453656" elapsed="10.344826"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:33.453341" elapsed="10.345199"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T21:03:33.453223" elapsed="10.345366"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:43.799781" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:43.801914" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"20...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.799617" elapsed="0.002350"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:43.802367" level="INFO">--------------
+URL: http://0.0.0.0:8080/store/order/9
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+{"id":-9007199254740991,"petId":-9007199254740991,"quantity":-2147483648,"shipDate":"2019-08-24T14:15:22Z","status":"placed","complete":false}
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10007 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10008 ms
+Total:          10008 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.802184" elapsed="0.000427"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.802753" elapsed="0.000250"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:43.799350" elapsed="0.003749"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.798904" elapsed="0.004248"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:43.798754" elapsed="0.004441"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_post_request_to_order_endpoint">
+<kw name="Run HTTPStat POST Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:43.804971" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.804227" elapsed="0.000861"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:43.806403" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/store/order" -method "POST" -body '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.805527" elapsed="10.329776"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" -body ${REQUEST_BODY} &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.805309" elapsed="10.330155"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order</arg>
+<arg>POST</arg>
+<arg>'{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}'</arg>
+<status status="PASS" start="2024-05-02T21:03:43.803966" elapsed="10.331613"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:43.803695" elapsed="10.331977"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:43.803419" elapsed="10.332320"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_post_request_to_order_endpoint</var>
+<status status="PASS" start="2024-05-02T21:03:43.803315" elapsed="10.332479"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_server_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:54.137082" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:03:54.138559" level="INFO">${API_SERVER_LOG_CONTENTS} = [9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a documen...</msg>
+<var>${API_SERVER_LOG_CONTENTS}</var>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.136896" elapsed="0.001743"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:03:54.139094" level="INFO">[9:00:18 PM] › [CLI] …  awaiting  Starting Prism…
+[9:00:18 PM] › [CLI] ✖  fatal     
+prism mock &lt;document&gt;
+
+Start a mock server with the given document file
+
+Positionals:
+  document  Path to a document file. Can be both a file or a fetchable resource on the web.  [string] [required]
+
+Options:
+      --version                           Show version number  [boolean]
+      --help                              Show help  [boolean]
+  -p, --port                              Port that Prism will run on.  [number] [required] [default: 4010]
+  -h, --host                              Host that Prism will listen to.  [string] [required] [default: "127.0.0.1"]
+      --cors                              Enables CORS headers.  [boolean] [default: true]
+  -m, --multiprocess                      Forks the http server from the CLI for faster log processing.  [boolean] [default: false]
+      --errors                            Specifies whether request/response violations marked as errors will produce an error response  [boolean] [required] [default: false]
+  -v, --verboseLevel                      Turns on verbose logging.  [required] [choices: "trace", "debug", "info", "warn", "error", "fatal", "silent"] [default: "info"]
+  -d, --dynamic                           Dynamically generate examples.  [boolean] [default: false]
+      --json-schema-faker-fillProperties  Generate additional properties when using dynamic generation.  [boolean]
+      --ignoreExamples                    Tell Prism to treat the spec as though it has no examples. When in static mode,
+                                                                  returns an example that has not been generated using json-schema-faker, but was
+                                                                  created by Prism. When in dynamic mode, this flag is ignored, since in dynamic mode,
+                                                                  examples are not consulted and json-schema-faker is used to generate a response based
+                                                                  on the schema defined in the spec  [boolean] [default: false]
+
+listen EADDRINUSE: address already in use 0.0.0.0:4010
+[9:00:51 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:00:51 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:00:51 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:00:51 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:01 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:01:01 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:01 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:01 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:01:12 PM] › [HTTP SERVER] get /no_auth/pets/findByStatus ℹ  info      Request received
+[9:01:12 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:01:12 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:01:12 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:42 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:02:42 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:42 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:42 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:02:52 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:02:52 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:02:52 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:02:52 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:03 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[9:03:03 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:03 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:03 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:13 PM] › [HTTP SERVER] post /user ℹ  info      Request received
+[9:03:13 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:13 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:13 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:33 PM] › [HTTP SERVER] get /store/order/9 ℹ  info      Request received
+[9:03:33 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:33 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:33 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+[9:03:44 PM] › [HTTP SERVER] post /store/order ℹ  info      Request received
+[9:03:44 PM] ›     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+[9:03:44 PM] ›     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+[9:03:44 PM] ›     [NEGOTIATOR] ℹ  info      &gt; Responding with "200"
+</msg>
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.138859" elapsed="0.001525"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${API_SERVER_LOG_CONTENTS}</arg>
+<arg>UnhandledPromiseRejectionWarning</arg>
+<arg>Unhandled</arg>
+<arg>ERR_INVALID_CHAR</arg>
+<arg>rejection</arg>
+<arg>exception</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.140557" elapsed="0.000204"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:54.136595" elapsed="0.004265"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.136147" elapsed="0.004773"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_server_log_files</var>
+<status status="PASS" start="2024-05-02T21:03:54.135979" elapsed="0.004989"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="send_get_request_to_pets_endpoint">
+<kw name="Run HTTPStat GET Request">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:54.142918" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.142121" elapsed="0.000874"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:03:54.144146" level="INFO">Running command 'go run httpstat-test-runner.go -url "http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available" -method "GET" &gt; /tests/resources/httpstat-graphwalker-response-output.log'.</msg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.143412" elapsed="10.316943"/>
+</kw>
+<arg>Run</arg>
+<arg>go run httpstat-test-runner.go -url "${TARGET_URL}" -method "${REQUEST_METHOD}" &gt; ${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.143156" elapsed="10.317373"/>
+</kw>
+<arg>http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-02T21:03:54.141846" elapsed="10.318813"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:03:54.141588" elapsed="10.319910"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:03:54.141279" elapsed="10.320315"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">send_get_request_to_pets_endpoint</var>
+<status status="PASS" start="2024-05-02T21:03:54.141093" elapsed="10.320558"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:04:04.463079" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:04:04.464324" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.462882" elapsed="0.001493"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:04:04.464768" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10007 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10007 ms
+Total:          10007 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.464582" elapsed="0.000255"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.464995" elapsed="0.000196"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:04:04.462479" elapsed="0.002912"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.462001" elapsed="0.003461"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:04:04.461835" elapsed="0.003682"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="add_toxiproxy_slow_close_then_send_user_get_request">
+<kw name="Remove All Three Toxics" owner="ToxiproxyChaosTestLibrary">
+<doc>Remove all three toxics from the exploratory-testing-proxy.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.466538" elapsed="5.014241"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-02T21:04:39.483089" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-02T21:04:09.481394" elapsed="30.001947"/>
+</kw>
+<kw name="Add Slow Close Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Slow Close Toxic to the Vegeta load tests. It will delay the TCP socket from closing until delay has elapsed.</doc>
+<status status="PASS" start="2024-05-02T21:04:39.483952" elapsed="5.007742"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:04:04.466147" elapsed="40.025804"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:04:04.465792" elapsed="40.026287"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">add_toxiproxy_slow_close_then_send_user_get_request</var>
+<status status="PASS" start="2024-05-02T21:04:04.465663" elapsed="40.026521"/>
+</iter>
+<iter>
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="check_api_response_log_files">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-02T21:04:44.494418" level="INFO" html="true">Getting file '&lt;a href="file:///tests/resources/httpstat-graphwalker-response-output.log"&gt;/tests/resources/httpstat-graphwalker-response-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-05-02T21:04:44.496578" level="INFO">${HTTPSTAT_RESPONSE_CONTENTS} = --------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-900719925474099...</msg>
+<var>${HTTPSTAT_RESPONSE_CONTENTS}</var>
+<arg>${EXECDIR}/resources/httpstat-graphwalker-response-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.494164" elapsed="0.002479"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:04:44.497151" level="INFO">--------------
+URL: http://0.0.0.0:8080/no_auth/pets/findByStatus?status=available
+Method: GET
+Status Code: 200
+--------------
+Response Body:
+[{"id":-9007199254740991,"category":{"id":-9007199254740991,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":-9007199254740991,"name":"string"}],"status":"available"}]
+--------------
+Metrics:
+DNS lookup:           0 ms
+TCP connection:       0 ms
+TLS handshake:        0 ms
+Server processing: 10007 ms
+Content transfer:     0 ms
+
+Name Lookup:       0 ms
+Connect:           0 ms
+Pre Transfer:      0 ms
+Start Transfer: 10007 ms
+Total:          10007 ms
+
+</msg>
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.496906" elapsed="0.000758"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${HTTPSTAT_RESPONSE_CONTENTS}</arg>
+<arg>ERROR</arg>
+<arg>error</arg>
+<arg>errors</arg>
+<arg>Not Allowed</arg>
+<arg>no method</arg>
+<arg>NO_METHOD_MATCHED_ERROR</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.497909" elapsed="0.000244"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:04:44.493627" elapsed="0.004655"/>
+</kw>
+<arg>${GRAPHWALKER_PATH_KEYWORD}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.492891" elapsed="0.005467"/>
+</kw>
+<var name="${GRAPHWALKER_PATH_KEYWORD}">check_api_response_log_files</var>
+<status status="PASS" start="2024-05-02T21:04:44.492621" elapsed="0.005858"/>
+</iter>
+<var>${GRAPHWALKER_PATH_KEYWORD}</var>
+<value>@{GRAPHWALKER_CSV_LINES}</value>
+<status status="PASS" start="2024-05-02T20:58:32.035594" elapsed="372.462962"/>
+</for>
+<arg>${GRAPHWALKER_PATH_LINES}</arg>
+<status status="PASS" start="2024-05-02T20:58:32.035365" elapsed="372.463319"/>
+</kw>
+<arg>GraphwalkerPath.csv</arg>
+<status status="PASS" start="2024-05-02T20:58:32.031492" elapsed="372.467285"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.499570" elapsed="0.000380"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:04:44.499120" elapsed="0.001134"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:04:44.501688" elapsed="0.000164"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:04:44.501086" elapsed="0.001783"/>
+</kw>
+<tag>Chaos_Tests</tag>
+<tag>Exploratory_Tests</tag>
+<tag>Model-Based_Tests</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T20:58:32.026356" elapsed="372.476690"/>
+</test>
+<status status="PASS" start="2024-05-02T20:58:31.967520" elapsed="372.536794"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Chaos_Tests</stat>
+<stat pass="1" fail="0" skip="0">Exploratory_Tests</stat>
+<stat pass="1" fail="0" skip="0">Model-Based_Tests</stat>
+<stat pass="1" fail="0" skip="0">Run_All_Tests</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

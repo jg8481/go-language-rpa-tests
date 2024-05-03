@@ -1,0 +1,15 @@
+#version: "3"
+
+
+services:
+
+  docker-test-runner:
+    build:
+      context: .
+      dockerfile: "Dockerfile.TestRunner"
+    volumes:
+      - "$PWD:/tests"
+    ports:
+      - '8080:4010'
+    command: -inMemory
+    network_mode: "bridge"

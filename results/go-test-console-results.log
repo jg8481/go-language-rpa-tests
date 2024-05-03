@@ -1,0 +1,6 @@
+  "Output": "--- PASS: TestHTTPRequests (0.17s)\n"
+  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/user/vitae (0.08s)\n"
+  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available (0.03s)\n"
+  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/store/order/9 (0.02s)\n"
+  "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/store/order (0.03s)\n"
+  "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/user (0.02s)\n"

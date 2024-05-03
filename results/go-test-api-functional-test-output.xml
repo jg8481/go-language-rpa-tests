@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-02T21:17:30.044831" rpa="false" schemaversion="5">
+<suite id="s1" name="Generic-Automation" source="/tests/generic-automation.robot">
+<test id="s1-t1" name="GO TEST FUNCTIONAL TESTS - GET /USER/USERNAME : Analyze the Go Httpstat functional test for a GET request on the /user/vitae API endpoint" line="67">
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.122103" elapsed="0.000364"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.120918" elapsed="0.001699"/>
+</kw>
+<kw name="Analyze Go Test Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:30.124581" level="INFO">Running command 'cat /tests/resources/go-test-console-results.log | grep vitae 2&gt;&amp;1'.</msg>
+<msg time="2024-05-02T21:17:30.128734" level="INFO">${GO_TEST_OUTPUT_CONTENTS} =   "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/user/vitae (0.08s)\n"</msg>
+<var>${GO_TEST_OUTPUT_CONTENTS}</var>
+<arg>cat ${EXECDIR}/resources/go-test-console-results.log | grep ${GO_TEST_OUTPUT_CHECK1}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.123732" elapsed="0.005054"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:17:30.129229" level="INFO">  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/user/vitae (0.08s)\n"</msg>
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.129039" elapsed="0.000241"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<arg>${GO_TEST_OUTPUT_CHECK2}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.129414" elapsed="0.000260"/>
+</kw>
+<arg>vitae</arg>
+<arg>PASS</arg>
+<status status="PASS" start="2024-05-02T21:17:30.123119" elapsed="0.006651"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.130558" elapsed="0.000380"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.130010" elapsed="0.001037"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.132259" elapsed="0.000337"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.131667" elapsed="0.001078"/>
+</kw>
+<tag>Functional_Tests</tag>
+<tag>Functional_Tests_Analysis</tag>
+<tag>robot:skip-on-failure</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T21:17:30.119521" elapsed="0.013461"/>
+</test>
+<test id="s1-t2" name="GO TEST FUNCTIONAL TESTS - GET /NO_AUTH/PETS/FINDBYSTATUS : Analyze the Go Httpstat functional test for a GET request on the /no_auth/pets/findByStatus API endpoint" line="73">
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.135622" elapsed="0.000331"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.134921" elapsed="0.001292"/>
+</kw>
+<kw name="Analyze Go Test Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:30.138305" level="INFO">Running command 'cat /tests/resources/go-test-console-results.log | grep findByStatus 2&gt;&amp;1'.</msg>
+<msg time="2024-05-02T21:17:30.142530" level="INFO">${GO_TEST_OUTPUT_CONTENTS} =   "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available (0.03s)\n"</msg>
+<var>${GO_TEST_OUTPUT_CONTENTS}</var>
+<arg>cat ${EXECDIR}/resources/go-test-console-results.log | grep ${GO_TEST_OUTPUT_CHECK1}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.137283" elapsed="0.005326"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:17:30.143037" level="INFO">  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/no_auth/pets/findByStatus?status=available (0.03s)\n"</msg>
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.142856" elapsed="0.000244"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<arg>${GO_TEST_OUTPUT_CHECK2}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.143266" elapsed="0.000279"/>
+</kw>
+<arg>findByStatus</arg>
+<arg>PASS</arg>
+<status status="PASS" start="2024-05-02T21:17:30.136660" elapsed="0.007001"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.144285" elapsed="0.000237"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.143911" elapsed="0.000723"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.146191" elapsed="0.000149"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.145108" elapsed="0.001321"/>
+</kw>
+<tag>Functional_Tests</tag>
+<tag>Functional_Tests_Analysis</tag>
+<tag>robot:skip-on-failure</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T21:17:30.133956" elapsed="0.012629"/>
+</test>
+<test id="s1-t3" name="GO TEST FUNCTIONAL TESTS - GET /STORE/ORDER/NUMBER : Analyze the Go Httpstat functional test for a GET request on the /store/order/9 API endpoint" line="79">
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.148665" elapsed="0.000259"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.148186" elapsed="0.000903"/>
+</kw>
+<kw name="Analyze Go Test Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:30.150889" level="INFO">Running command 'cat /tests/resources/go-test-console-results.log | grep store/order/9 2&gt;&amp;1'.</msg>
+<msg time="2024-05-02T21:17:30.154778" level="INFO">${GO_TEST_OUTPUT_CONTENTS} =   "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/store/order/9 (0.02s)\n"</msg>
+<var>${GO_TEST_OUTPUT_CONTENTS}</var>
+<arg>cat ${EXECDIR}/resources/go-test-console-results.log | grep ${GO_TEST_OUTPUT_CHECK1}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.149855" elapsed="0.004969"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:17:30.155203" level="INFO">  "Output": "    --- PASS: TestHTTPRequests/GET_http://0.0.0.0:4010/store/order/9 (0.02s)\n"</msg>
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.155024" elapsed="0.000233"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<arg>${GO_TEST_OUTPUT_CHECK2}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.155458" elapsed="0.000175"/>
+</kw>
+<arg>store/order/9</arg>
+<arg>PASS</arg>
+<status status="PASS" start="2024-05-02T21:17:30.149345" elapsed="0.006367"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.156206" elapsed="0.000367"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.155922" elapsed="0.001573"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.158135" elapsed="0.000127"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.157803" elapsed="0.000532"/>
+</kw>
+<tag>Functional_Tests</tag>
+<tag>Functional_Tests_Analysis</tag>
+<tag>robot:skip-on-failure</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T21:17:30.147128" elapsed="0.011519"/>
+</test>
+<test id="s1-t4" name="GO TEST FUNCTIONAL TESTS - POST /STORE/ORDER : Analyze the Go Httpstat functional test for a POST request on the /store/order API endpoint. This will create a new order." line="85">
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.160697" elapsed="0.000363"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.160197" elapsed="0.001011"/>
+</kw>
+<kw name="Analyze Go Test Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:30.163184" level="INFO">Running command 'cat /tests/resources/go-test-console-results.log | grep POST_http://0.0.0.0:4010/store/order 2&gt;&amp;1'.</msg>
+<msg time="2024-05-02T21:17:30.166442" level="INFO">${GO_TEST_OUTPUT_CONTENTS} =   "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/store/order (0.03s)\n"</msg>
+<var>${GO_TEST_OUTPUT_CONTENTS}</var>
+<arg>cat ${EXECDIR}/resources/go-test-console-results.log | grep ${GO_TEST_OUTPUT_CHECK1}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.162112" elapsed="0.004378"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:17:30.166846" level="INFO">  "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/store/order (0.03s)\n"</msg>
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.166684" elapsed="0.000208"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<arg>${GO_TEST_OUTPUT_CHECK2}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.167013" elapsed="0.000162"/>
+</kw>
+<arg>POST_http://0.0.0.0:4010/store/order</arg>
+<arg>PASS</arg>
+<status status="PASS" start="2024-05-02T21:17:30.161650" elapsed="0.005603"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.167736" elapsed="0.000187"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.167507" elapsed="0.000493"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.168895" elapsed="0.000112"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.168464" elapsed="0.000635"/>
+</kw>
+<tag>Functional_Tests</tag>
+<tag>Functional_Tests_Analysis</tag>
+<tag>robot:skip-on-failure</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T21:17:30.159054" elapsed="0.010171"/>
+</test>
+<test id="s1-t5" name="GO TEST FUNCTIONAL TESTS - POST /USER : Analyze the Go Httpstat functional test for a POST request on the /user API endpoint. This will create a new user." line="91">
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.170667" elapsed="0.000198"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.170269" elapsed="0.000709"/>
+</kw>
+<kw name="Analyze Go Test Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:30.172781" level="INFO">Running command 'cat /tests/resources/go-test-console-results.log | grep POST_http://0.0.0.0:4010/user 2&gt;&amp;1'.</msg>
+<msg time="2024-05-02T21:17:30.176548" level="INFO">${GO_TEST_OUTPUT_CONTENTS} =   "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/user (0.02s)\n"</msg>
+<var>${GO_TEST_OUTPUT_CONTENTS}</var>
+<arg>cat ${EXECDIR}/resources/go-test-console-results.log | grep ${GO_TEST_OUTPUT_CHECK1}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.171947" elapsed="0.004653"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T21:17:30.176973" level="INFO">  "Output": "    --- PASS: TestHTTPRequests/POST_http://0.0.0.0:4010/user (0.02s)\n"</msg>
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.176794" elapsed="0.000229"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${GO_TEST_OUTPUT_CONTENTS}</arg>
+<arg>${GO_TEST_OUTPUT_CHECK2}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.177163" elapsed="0.000197"/>
+</kw>
+<arg>POST_http://0.0.0.0:4010/user</arg>
+<arg>PASS</arg>
+<status status="PASS" start="2024-05-02T21:17:30.171561" elapsed="0.005925"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.178323" elapsed="0.000383"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.178008" elapsed="0.000805"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:30.179612" elapsed="0.000116"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:30.179177" elapsed="0.000628"/>
+</kw>
+<tag>Functional_Tests</tag>
+<tag>Functional_Tests_Analysis</tag>
+<tag>robot:skip-on-failure</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-02T21:17:30.169614" elapsed="0.010305"/>
+</test>
+<status status="PASS" start="2024-05-02T21:17:30.059675" elapsed="0.120987"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">Functional_Tests</stat>
+<stat pass="5" fail="0" skip="0">Functional_Tests_Analysis</stat>
+<stat pass="5" fail="0" skip="0">Run_All_Tests</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

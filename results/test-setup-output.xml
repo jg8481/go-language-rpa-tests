@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-02T21:17:32.689178" rpa="false" schemaversion="5">
+<suite id="s1" name="Generic-Automation" source="/tests/generic-automation.robot">
+<test id="s1-t1" name="FUNCTIONAL TESTS SETUP : Start the Prism API Mock Server for the Go Httpstat functional tests and Vegeta Load Tests." line="25">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-02T21:17:32.767131" level="INFO">${AUTOMATION_SECTION_NAME} = FUNCTIONAL TESTS SETUP</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-02T21:17:32.766047" elapsed="0.001163"/>
+</kw>
+<arg>FUNCTIONAL TESTS SETUP</arg>
+<status status="PASS" start="2024-05-02T21:17:32.764849" elapsed="0.002484"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:32.768094" elapsed="0.000378"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:32.767774" elapsed="0.000883"/>
+</kw>
+<kw name="Start Prism API Mock Server">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:32.775809" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/api-application.log"&gt;/tests/resources/api-application.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/api-application.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:17:32.769655" elapsed="0.006284"/>
+</kw>
+<kw name="Download And Install Prism" owner="PrismMockServerLibrary">
+<doc>Downloads and installs the Prism tool.</doc>
+<status status="PASS" start="2024-05-02T21:17:32.776135" elapsed="5.053038"/>
+</kw>
+<kw name="Start Prism Mock Server" owner="PrismMockServerLibrary">
+<doc>Start the Prism tool and create a mock API server.</doc>
+<status status="PASS" start="2024-05-02T21:17:37.829580" elapsed="5.008475"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Prism Mock Server Started</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.838498" elapsed="0.000624"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Check the Mock API log found in... ${EXECDIR}/resources/api-application.log</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.839530" elapsed="0.000439"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:32.769112" elapsed="10.071017"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.842123" elapsed="0.000538"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:42.840956" elapsed="0.001852"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.844081" elapsed="0.000205"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:42.843357" elapsed="0.001076"/>
+</kw>
+<tag>Run_All_Tests</tag>
+<tag>Tests_Setup</tag>
+<status status="PASS" start="2024-05-02T21:17:32.763568" elapsed="10.081222"/>
+</test>
+<test id="s1-t2" name="CHAOS AND LOAD TESTS SETUP : Start the Toxiproxy TCP Chaos Proxy." line="32">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-02T21:17:42.847360" level="INFO">${AUTOMATION_SECTION_NAME} = CHAOS AND LOAD TESTS SETUP</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.847031" elapsed="0.000396"/>
+</kw>
+<arg>CHAOS AND LOAD TESTS SETUP</arg>
+<status status="PASS" start="2024-05-02T21:17:42.846521" elapsed="0.001020"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.848280" elapsed="0.000536"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:42.847948" elapsed="0.001079"/>
+</kw>
+<kw name="Start Toxiproxy TCP Proxy">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:17:42.856827" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/toxiproxy.log"&gt;/tests/resources/toxiproxy.log&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/toxiproxy.log</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.850056" elapsed="0.006900"/>
+</kw>
+<kw name="Start Toxiproxy Server" owner="ToxiproxyChaosTestLibrary">
+<doc>Start the Toxiproxy server.</doc>
+<status status="PASS" start="2024-05-02T21:17:42.857169" elapsed="5.007421"/>
+</kw>
+<kw name="Create TCP Chaos Proxy" owner="ToxiproxyChaosTestLibrary">
+<doc>Create a TCP Chaos Proxy for the Vegeta load tests.</doc>
+<status status="PASS" start="2024-05-02T21:17:47.865027" elapsed="5.006126"/>
+</kw>
+<kw name="Add Limited Bandwidth Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Limited Bandwidth Toxic to the Vegeta load tests. It will limit a connection to a maximum number of kilobytes per second.</doc>
+<status status="PASS" start="2024-05-02T21:17:52.871452" elapsed="5.004798"/>
+</kw>
+<kw name="Add Slow Close Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Slow Close Toxic to the Vegeta load tests. It will delay the TCP socket from closing until delay has elapsed.</doc>
+<status status="PASS" start="2024-05-02T21:17:57.876660" elapsed="5.006919"/>
+</kw>
+<kw name="Add Latency Toxic" owner="ToxiproxyChaosTestLibrary">
+<doc>Add the Latency Toxic to the Vegeta load tests. It will add a delay to all data going through the proxy.</doc>
+<status status="PASS" start="2024-05-02T21:18:02.883936" elapsed="5.006304"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Toxiproxy Server Started</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.890540" elapsed="0.000279"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Check the Toxiproxy log found in... ${EXECDIR}/resources/toxiproxy.log</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.891033" elapsed="0.000308"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:17:42.849620" elapsed="25.041850"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.892373" elapsed="0.000276"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:07.891902" elapsed="0.000855"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.893761" elapsed="0.000167"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:07.893373" elapsed="0.000652"/>
+</kw>
+<tag>Run_All_Tests</tag>
+<tag>Tests_Setup</tag>
+<status status="PASS" start="2024-05-02T21:17:42.845666" elapsed="25.048503"/>
+</test>
+<test id="s1-t3" name="MODEL-BASED CHAOS TESTS SETUP : Create a new Graphwalker Path File for the Model-Based Chaos Tests. The Graphwalker Model combines API Functional Test, Chaos Test, and Mutational Fuzz Test strategies." line="39">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-02T21:18:07.896300" level="INFO">${AUTOMATION_SECTION_NAME} = MODEL-BASED CHAOS TESTS SETUP</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.895958" elapsed="0.000410"/>
+</kw>
+<arg>MODEL-BASED CHAOS TESTS SETUP</arg>
+<status status="PASS" start="2024-05-02T21:18:07.895513" elapsed="0.001587"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.897971" elapsed="0.000288"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:07.897450" elapsed="0.000931"/>
+</kw>
+<kw name="Create Graphwalker Path File">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-02T21:18:07.900360" level="INFO" html="true">Removed file '&lt;a href="file:///tests/resources/GraphwalkerPath.csv"&gt;/tests/resources/GraphwalkerPath.csv&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/GraphwalkerPath.csv</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.899336" elapsed="0.001117"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-02T21:18:07.901437" level="INFO">Running command 'java -jar /usr/bin/graphwalker-cli-4.3.2.jar offline --start-element send_get_request_to_user_endpoint --model /tests/resources/GraphwalkerModel.graphml "random(edge_coverage(100))" | jq -r '.currentElementName' &gt;&gt; /tests/resources/GraphwalkerPath.csv'.</msg>
+<arg>java -jar /usr/bin/graphwalker-cli-4.3.2.jar offline --start-element send_get_request_to_user_endpoint --model ${EXECDIR}/resources/GraphwalkerModel.graphml "random(edge_coverage(100))" | jq -r '.currentElementName' &gt;&gt; ${EXECDIR}/resources/GraphwalkerPath.csv</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.900813" elapsed="3.050885"/>
+</kw>
+<arg>Run</arg>
+<arg>java -jar /usr/bin/graphwalker-cli-4.3.2.jar offline --start-element send_get_request_to_user_endpoint --model ${EXECDIR}/resources/GraphwalkerModel.graphml "random(edge_coverage(100))" | jq -r '.currentElementName' &gt;&gt; ${EXECDIR}/resources/GraphwalkerPath.csv</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-05-02T21:18:07.900634" elapsed="3.051255"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Graphwalker Path File Created</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:10.952177" elapsed="0.000244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Check the Graphwalker Path File found in... ${EXECDIR}/resources/GraphwalkerPath.csv</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:10.952635" elapsed="0.000320"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:07.898736" elapsed="3.054392"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-02T21:18:10.954010" elapsed="0.000423"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:10.953451" elapsed="0.001093"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-02T21:18:10.955335" elapsed="0.000110"/>
+</kw>
+<status status="PASS" start="2024-05-02T21:18:10.954960" elapsed="0.000572"/>
+</kw>
+<tag>Run_All_Tests</tag>
+<tag>Tests_Setup</tag>
+<status status="PASS" start="2024-05-02T21:18:07.894564" elapsed="3.061101"/>
+</test>
+<status status="PASS" start="2024-05-02T21:17:32.706062" elapsed="38.250312"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">Run_All_Tests</stat>
+<stat pass="3" fail="0" skip="0">Tests_Setup</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,28 @@
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 20:59:46 UTC 2024 :: ========
+ 
+{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "170141183460469231731687303715884105729", "userStatus": 1}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:03:02 UTC 2024 :: ========
+ 
+{"id": 1, "username": "user1", "firstName": "John", "lastNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaame": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567890", "userStatus": 1}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:20:18 UTC 2024 :: ========
+ 
+{"id": 1, "username": "user1", "firstName": "John", "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "1234567890", "userStatus": 1}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:21:43 UTC 2024 :: ========
+ 
+{"id": 340282366920938463463374607431768211455, "username": "user65538", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123456", "phone": "1234567889", "userStatus": 1}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:23:08 UTC 2024 :: ========
+ 
+{"id": 1, "userStatus": -104}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:25:39 UTC 2024 :: ========
+ 
+{"id": 1, "username": "user1", "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "916324893847890", "phone": "1234567890", "userStatus": 1}
+ 
+======== :: Fuzz Test Data Tracker for mutational-fuzz-data-user-test.dat -- Logged this on... Thu May  2 21:28:30 UTC 2024 :: ========
+ 
+{"id": 1, "username":: "user1", "firstName": "John", "lastName": "John", "lastName": "Doe", "email": "john.doe@example.com", "password": "123455", "phone": "1234567890", "userStatus": 2147483648}
+ 
