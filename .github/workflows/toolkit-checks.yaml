@@ -16,8 +16,8 @@ jobs:
     - name: Build the Docker image
       run: |
         ls -la
-        docker build . --file Dockerfile.TestRunner -t test-runner
+        docker build . --file Dockerfile.CI -t test-runner
     - name: Run the Docker container
       run: |
         ls -la
-        docker run --rm -v ${PWD}:/test --workdir /test test-runner /bin/bash -c ./run-go-rpa-tests.sh GitHub-CI-Tests-In-Docker      
+        docker run --name test-runner test-runner     
