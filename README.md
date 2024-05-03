@@ -14,10 +14,10 @@
 - Listener Interface that monitors every test and performs actions during runtime
 
 This repository is a `collection of Go Language test tools` and strategies `enhanced with Robot Framework`, an open source RPA (Robotic Process Automation) and generic automation framework. The goal is to demonstrate how these two sides can work together to form a more powerful test strategy than just one side by itself. Here is a list of the Go Language tools and components that are being utilized. The examples utilizing these components and tools can also be used without RPA for hands-on exploratory testing.
-- `go test`, the built-in Go Language test tool
-- `httpstat` and `go-httpstat`, a Go Language tool and library (similar to `curl`) that gathers various metrics of HTTP requests 
-- `vegeta`, a versatile and customizable HTTP load testing tool and library
-- `toxiproxy`, a TCP Chaos Proxy tool
+- [go test](https://pkg.go.dev/testing), the built-in Go Language test tool
+- [httpstat](https://github.com/davecheney/httpstat) and [go-httpstat](https://github.com/tcnksm/go-httpstat), a Go Language tool and library (similar to `curl`) that gathers various metrics of HTTP requests 
+- [vegeta](https://github.com/tsenart/vegeta), a versatile and customizable HTTP load testing tool and library
+- [toxiproxy](https://github.com/Shopify/toxiproxy), a TCP Chaos Proxy tool
 
 ## Quick Walkthrough
 
