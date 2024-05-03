@@ -4,7 +4,9 @@
 
 ## Go Language test tools enhanced with RPA
 
-“All testers do exploratory testing. Some do it more deliberately and in intentionally skilled ways.” - Cem Kaner
+**“All testers do exploratory testing. Some do it more deliberately and in intentionally skilled ways.” - [Cem Kaner](https://13j276.p3cdn1.secureserver.net/pdfs/QAIExploring.pdf)**
+
+**"Are you doing testing? Then you are already doing exploratory testing. Are you doing scripted testing? If you’re doing it responsibly, you are doing exploratory testing with scripting (and perhaps with checking)." - [James Bach](https://www.satisfice.com/blog/archives/1509)**
 
 `Go Language` by itself is [a powerful and high-performance language built for scalability](https://go.dev/solutions/case-studies). It has many libraries that can be used to create automation, but there are some exploratory test strategies that can be more easily implemented (with less lines of code) using a `generic RPA framework` to complement the strengths of Go. For example, the following strategies are not easy to quickly create within a day or two using only pure Go Language code.
 - [Model-Based Tests using Graphwalker's visual .graphml files](https://graphwalker.github.io/), combined with Chaos Tests
@@ -31,6 +33,8 @@ All of the tests will be targeting a `prism` mock API server through a TCP Chaos
 - https://github.com/stoplightio/prism/tree/master/docs/getting-started
 - https://github.com/Shopify/toxiproxy?tab=readme-ov-file#usage
 
+The `generic-automation.robot` file (combined with the `ToxiproxyChaosTestLibrary.py
+
 ### [Functional Tests] Go Test + HTTPStat
 
 The Functional Tests are handled by the `functional-tests_test.go` and `httpstat-test-runner.go` files. For MacOS and Linux users, you can run these tests with the following command from a terminal.
@@ -44,8 +48,8 @@ The results of the `go test` runner is set to provide JSON output. The following
 - `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs`
 
 Optionally, the `httpstat-test-runner.go` file can be used for hands-on exploratory testing using the following commands. 
-- (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Tests-Inside-Docker`
-- (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Tests-Inside-Docker`
+- (MacOS/Linux users) `bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Checks-Inside-Docker`
+- (Windows users) `docker-compose -f docker-compose.yml build`, then run `docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Checks-Inside-Docker`
 
 ### [Load Tests] Vegeta 
 
