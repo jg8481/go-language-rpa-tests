@@ -20,4 +20,5 @@ jobs:
     - name: Run the Docker container
       run: |
         ls -la
-        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker GitHub-CI-Tests-In-Docker       
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Go-Language-Functional-Tests
+        bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs         
