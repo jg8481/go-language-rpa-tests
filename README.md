@@ -65,7 +65,7 @@ Windows users can run the following commands.
 
 ### [Model-based Tests] Graphwalker + Radamsa
 
-The Model-based Tests are handled by the `generic-automation.robot` and `GraphwalkerModel.graphml` files. In addition to the `toxiproxy` Chaos Proxy automation mentioned above, the Graphwalker Model-based Tests displayed in the screenshot below use the `httpstat-test-runner.go` file and a Mutational Fuzzer called [Radamasa](https://gitlab.com/akihe/radamsa).
+The Model-based Tests are handled by the `generic-automation.robot` and `GraphwalkerModel.graphml` files. In addition to the `toxiproxy` Chaos Proxy automation mentioned above, the Graphwalker Model-based Tests displayed in the screenshot below use the `httpstat-test-runner.go` file and a Mutational Fuzzer called [Radamsa](https://gitlab.com/akihe/radamsa).
 
 ![Graphwalker](./images/image2.png)
 
