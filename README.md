@@ -27,6 +27,7 @@ This repository is a `collection of Go Language test tools` and strategies [enha
 
 In the future I plan to expand this toolkit into the following areas.
 - Experiment with the [f1](https://github.com/form3tech-oss/f1) performance test framework. Try to create some example tests.
+- Experiment with the [robotgo](https://github.com/go-vgo/robotgo) cross-platform GUI automation framework. Try to create some example tests.
 - Experiment with the [py4go](https://github.com/tliron/py4go) project. Try to create some example tests.
 
 ## Quick Walkthrough
