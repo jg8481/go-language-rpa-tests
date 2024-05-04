@@ -23,6 +23,12 @@ This repository is a `collection of Go Language test tools` and strategies [enha
 - [vegeta](https://github.com/tsenart/vegeta), a versatile and customizable HTTP load testing tool and library
 - [toxiproxy](https://github.com/Shopify/toxiproxy), a TCP Chaos Proxy tool
 
+### Toolkit Roadmap 
+
+In the future I plan to expand this toolkit into the following areas.
+- Experiment with the [f1](https://github.com/form3tech-oss/f1) performance test framework. Try to create some example tests.
+- Experiment with the [py4go](https://github.com/tliron/py4go) project. Try to create some example tests.
+
 ## Quick Walkthrough
 
 All of the examples in this repository are designed to run within a Docker container. It is the only requirement to run everything explained below in this walkthrough section. The following documentation can be used to install Docker.
