@@ -37,7 +37,7 @@ All of the examples in this repository are designed to run within a Docker conta
 
 ### [Test Target + Setup] Prism + Toxiproxy
 
-All of the tests will be targeting a `prism` mock API server through a TCP Chaos Proxy called `toxiproxy`. The `generic-automation.robot` file (combined with the `ToxiproxyChaosTestLibrary.py` and `PrismMockServerLibrary.py` RPA automation libraries) manages the setup and teardown of these tools. The documentation links below provide more details.
+Most of the tests will be targeting a `prism` mock API server through a TCP Chaos Proxy called `toxiproxy`, the rest of the tests (Functional Tests specifically) will be targeting the `prism` server directly. The `generic-automation.robot` file (combined with the `ToxiproxyChaosTestLibrary.py` and `PrismMockServerLibrary.py` RPA automation libraries) manages the setup and teardown of these tools. The documentation links below provide more details.
 - https://github.com/stoplightio/prism/tree/master/docs/getting-started
 - https://github.com/Shopify/toxiproxy?tab=readme-ov-file#usage
 
