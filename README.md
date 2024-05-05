@@ -98,7 +98,7 @@ The Slack bot is a part of the `generic-automation.robot` file, and will send a 
 
 ![Slack](./images/image4.png)
 
-The `DurationTrackingListener.py` and `TimeTrackingListener.py` files use the Robot Framework Listener Interface to monitor the execution of all tests. Robot Framework's Listener Interface has many capapbilities, more details about it can be found in the links below.
+The `DurationTrackingListener.py` uses the Robot Framework Listener Interface to monitor the execution of all tests. Robot Framework's Listener Interface has many capapbilities, more details about it can be found in the links below.
 - https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#listener-interface
 - https://www.youtube.com/watch?v=lKu-9WKtYcg
 
