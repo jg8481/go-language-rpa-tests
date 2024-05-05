@@ -90,7 +90,7 @@ More information about Model-based Testing can be found in the links below.
 - https://www.harryrobinson.net/
 - https://testoptimal.com/ref/starwest-2006-mbt-tutorial.pdf
 
-### [RPA Bonus Features] Slack bot + Listener Interface
+### [RPA Bonus Features] Slack bot + Listener Interface + Combined Test Metrics Results
 
 The Slack bot is a part of the `generic-automation.robot` file, and will send a Slack message using [slacktee](https://github.com/coursehero/slacktee) when any tests fail. The screenshots below demonstrate how a Model-based Test failure is sent to a specific Slack channel.
 
@@ -107,6 +107,10 @@ When the `DurationTrackingListener.py` is set to a very low number (for example,
 ![Slack](./images/image5.png)
 
 ![Slack](./images/image6.png)
+
+Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file. This is useful for a quick overview of all test results in one place. The screenshot of the `combined-test-results-log.html` below demonstrates this feature.
+
+![Metrics](./images/image7.png)
 
 ### [Automation Workflows] Tool Runner Script Options
 
