@@ -102,6 +102,12 @@ The `DurationTrackingListener.py` and `TimeTrackingListener.py` files use the Ro
 - https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#listener-interface
 - https://www.youtube.com/watch?v=lKu-9WKtYcg
 
+When the `DurationTrackingListener.py` is set to a very low number (for example, `max_seconds=1`) this will very easily show the test monitoring capabilities of an RPA framework. The screenshots below demonstrate what happens when I added a 30 second delay.
+
+![Slack](./images/image5.png)
+
+![Slack](./images/image6.png)
+
 ### [Automation Workflows] Tool Runner Script Options
 
 The `run-go-rpa-tests.sh` script is a tool runner script that can run all of the above workflows in a Docker container. The script has the following options for running on a local work station or in GitHub Actions CI.

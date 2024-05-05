@@ -112,6 +112,9 @@ Automation Section For Slack Notifications
     [Arguments]    ${AUTOMATION_SECTION}
     Set Suite Variable    ${AUTOMATION_SECTION_NAME}    ${AUTOMATION_SECTION}
 
+Trigger Only After Timeout
+    Send Short Message Through Slack After Any Automation Timeouts    generic-automation.robot file running various enhanced Go Language Test Tools    Docker Container Test
+
 Trigger Only After Failure
     Run Keyword If Test Failed     Automation Failure Detected Notify Team
 
@@ -130,6 +133,10 @@ Send Short Message Through Slack After Any Automation Failures
     ## The following keyword will demonstrate slacktee...
     [Arguments]    ${TEST_NAME}    ${TEST_ENVIRONMENT}
     Run Process    echo "The ${TEST_NAME} failed in the ${TEST_ENVIRONMENT} environment. The automation section that failed was --> ${AUTOMATION_SECTION_NAME}" | slacktee.sh -i :nerd_face: --plain-text --config ${EXECDIR}/resources/.slacktee    shell=True    timeout=20s    on_timeout=continue
+
+Send Short Message Through Slack After Any Automation Timeouts
+    [Arguments]    ${TEST_NAME}    ${TEST_ENVIRONMENT}
+    Run Process    echo "The ${TEST_NAME} has reached the global timeout and will fail. The automation section that triggered a timeout was --> ${AUTOMATION_SECTION_NAME}" | slacktee.sh -i :nerd_face: --plain-text --config ${EXECDIR}/resources/.slacktee    shell=True    timeout=20s    on_timeout=continue
 
 Log Lines To Console
     Log To Console    ...\n...\n...\n...
