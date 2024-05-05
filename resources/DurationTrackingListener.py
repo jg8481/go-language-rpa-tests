@@ -1,7 +1,7 @@
 class DurationTrackingListener(object):
     ROBOT_LISTENER_API_VERSION = 3
 
-# The following will measure the duration of each test. This listener will fail each test if they run beyond the maximum run time (max_seconds).
+# The following will measure the duration of each test. This listener will fail a test if it runs beyond the maximum run time (max_seconds).
 # Set to 7200 seconds or 2 hours.
 
     def __init__(self, max_seconds=7200):
