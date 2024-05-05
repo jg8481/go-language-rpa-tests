@@ -15,10 +15,7 @@ Test Teardown     Trigger Only After Failure
 ${USER_DEFINED_TEST_RATE}     100
 ## The following variable only accepts seconds as the duration.
 ${USER_DEFINED_TEST_DURATION}    10s
-${USER_DEFINED_METHOD}   GET
 ${USER_DEFINED_TEST_OUTPUT_FILE}    results.bin
-## The following is an empty request body for GET requests.
-${USER_DEFINED_TEST_REQUEST_BODY}   ${EMPTY}
 
 *** Test Cases ***
 
@@ -57,11 +54,19 @@ VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connec
     Run Ramp Up Load Test Connected To Toxiproxy
     Log Lines To Console
 
-VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
     [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
-    Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS
+    Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS
     Log Lines To Console
-    Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order/9
+    ${BASE64_OUTPUT}=    Create Base64 JQ Output From Given String    {"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}
+    Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order    ${BASE64_OUTPUT}    POST
+    Log Lines To Console
+
+VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+    [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
+    Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS
+    Log Lines To Console
+    Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order/9    ${EMPTY}    GET
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - GET /USER/USERNAME : Analyze the Go Httpstat functional test for a GET request on the /user/vitae API endpoint
@@ -178,7 +183,7 @@ Run Ramp Up Load Test Connected To Toxiproxy
     Log To Console    Check the results.bin files found in... ${EXECDIR}/results
 
 Run Custom Vegeta Load Test Connected To Toxiproxy
-    [Arguments]    ${USER_DEFINED_URL}
+    [Arguments]    ${USER_DEFINED_URL}    ${USER_DEFINED_TEST_REQUEST_BODY}    ${USER_DEFINED_METHOD}
     Remove File    ${EXECDIR}/*.bin
     Run Specific Parameters Vegeta Load Test    ${USER_DEFINED_TEST_RATE}    ${USER_DEFINED_TEST_DURATION}    ${USER_DEFINED_URL}    ${USER_DEFINED_METHOD}    ${USER_DEFINED_TEST_REQUEST_BODY}    ${USER_DEFINED_TEST_OUTPUT_FILE}
     Move Files    ${EXECDIR}/*.bin    ${EXECDIR}/results/

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-02T21:05:33.046047" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-05T12:03:09.489294" rpa="false" schemaversion="5">
 <suite id="s1" name="Generic-Automation" source="/tests/generic-automation.robot">
-<test id="s1-t1" name="VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connect to Toxiproxy and ramp up." line="53">
+<test id="s1-t1" name="VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connect to Toxiproxy and ramp up." line="50">
 <kw name="Automation Section For Slack Notifications">
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-05-02T21:05:33.128361" level="INFO">${AUTOMATION_SECTION_NAME} = VEGETA CHAOS LOAD TESTS - RAMP UP</msg>
+<msg time="2024-05-05T12:03:09.559836" level="INFO">${AUTOMATION_SECTION_NAME} = VEGETA CHAOS LOAD TESTS - RAMP UP</msg>
 <arg>${AUTOMATION_SECTION_NAME}</arg>
 <arg>${AUTOMATION_SECTION}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-05-02T21:05:33.127288" elapsed="0.001149"/>
+<status status="PASS" start="2024-05-05T12:03:09.558734" elapsed="0.001294"/>
 </kw>
 <arg>VEGETA CHAOS LOAD TESTS - RAMP UP</arg>
-<status status="PASS" start="2024-05-02T21:05:33.125722" elapsed="0.002844"/>
+<status status="PASS" start="2024-05-05T12:03:09.557410" elapsed="0.002715"/>
 </kw>
 <kw name="Log Lines To Console">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...\n...\n...\n...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:05:33.129425" elapsed="0.000306"/>
+<status status="PASS" start="2024-05-05T12:03:09.561014" elapsed="0.000276"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:05:33.129034" elapsed="0.000954"/>
+<status status="PASS" start="2024-05-05T12:03:09.560433" elapsed="0.000968"/>
 </kw>
 <kw name="Run Ramp Up Load Test Connected To Toxiproxy">
 <kw name="Remove File" owner="OperatingSystem">
-<msg time="2024-05-02T21:05:33.132793" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
+<msg time="2024-05-05T12:03:09.563831" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
 <arg>${EXECDIR}/*.bin</arg>
 <doc>Removes a file with the given path.</doc>
-<status status="PASS" start="2024-05-02T21:05:33.131029" elapsed="0.001952"/>
+<status status="PASS" start="2024-05-05T12:03:09.562215" elapsed="0.001701"/>
 </kw>
 <kw name="Run Vegeta Ramp Up Load Test" owner="VegetaLoadTestLibrary">
-<msg time="2024-05-02T21:17:06.707436" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 50 -duration 30s -url http://0.0.0.0:8080/user/vitae -method GET -output results-0.bin
+<msg time="2024-05-05T12:14:42.122848" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 50 -duration 30s -url http://0.0.0.0:8080/user/vitae -method GET -output results-0.bin
 Vegeta load test executed successfully: 
 
 Vegeta Load Test Runner - Results
@@ -40,11 +40,11 @@ StatusCodes: map[200:1500]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.009988722s
- - 50th percentile: 10.009024359s
- - 95th percentile: 10.012033445s
- - 99th percentile: 10.058393797s
- - Max: 10.120114944s
+ - Mean: 10.008901066s
+ - 50th percentile: 10.008396311s
+ - 95th percentile: 10.011157242s
+ - 99th percentile: 10.0200782s
+ - Max: 10.088557592s
 
 
 
@@ -59,11 +59,11 @@ StatusCodes: map[200:6000]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.006589476s
- - 50th percentile: 10.005474152s
- - 95th percentile: 10.008360224s
- - 99th percentile: 10.033605945s
- - Max: 10.115495606s
+ - Mean: 10.005979064s
+ - 50th percentile: 10.005410315s
+ - 95th percentile: 10.007590534s
+ - 99th percentile: 10.01601347s
+ - Max: 10.081466359s
 
 
 
@@ -78,11 +78,11 @@ StatusCodes: map[200:13500]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.007792285s
- - 50th percentile: 10.005327535s
- - 95th percentile: 10.008957372s
- - 99th percentile: 10.079058504s
- - Max: 10.281671035s
+ - Mean: 10.0062373s
+ - 50th percentile: 10.005296403s
+ - 95th percentile: 10.008157804s
+ - 99th percentile: 10.036167956s
+ - Max: 10.125924768s
 
 
 
@@ -97,11 +97,11 @@ StatusCodes: map[200:24000]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.007644614s
- - 50th percentile: 10.005085929s
- - 95th percentile: 10.014230275s
- - 99th percentile: 10.085725663s
- - Max: 10.178654589s
+ - Mean: 10.008880598s
+ - 50th percentile: 10.005120249s
+ - 95th percentile: 10.011816441s
+ - 99th percentile: 10.120925638s
+ - Max: 10.446140098s
 
 
 
@@ -116,11 +116,11 @@ StatusCodes: map[200:37500]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.008875512s
- - 50th percentile: 10.004974941s
- - 95th percentile: 10.025410847s
- - 99th percentile: 10.106031381s
- - Max: 10.213995083s
+ - Mean: 10.008544678s
+ - 50th percentile: 10.004842499s
+ - 95th percentile: 10.020838096s
+ - 99th percentile: 10.11556819s
+ - Max: 10.260687481s
 
 
 
@@ -135,90 +135,204 @@ StatusCodes: map[200:54000]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.984498383s
- - 50th percentile: 10.138709908s
- - 95th percentile: 13.315360795s
- - 99th percentile: 13.529324415s
- - Max: 13.6002862s</msg>
+ - Mean: 10.01039386s
+ - 50th percentile: 10.005271461s
+ - 95th percentile: 10.038200379s
+ - 99th percentile: 10.088908422s
+ - Max: 10.171936915s</msg>
 <arg>http://0.0.0.0:8080/user/vitae</arg>
 <arg>GET</arg>
 <doc>Runs the vegeta-load-test-runner.go automation with a ramp up mechanism.</doc>
-<status status="PASS" start="2024-05-02T21:05:33.133201" elapsed="693.574406"/>
+<status status="PASS" start="2024-05-05T12:03:09.564062" elapsed="692.558964"/>
 </kw>
 <kw name="Move Files" owner="OperatingSystem">
-<msg time="2024-05-02T21:17:06.712433" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-4.bin"&gt;/tests/results-4.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-4.bin"&gt;/tests/results/results-4.bin&lt;/a&gt;'.</msg>
-<msg time="2024-05-02T21:17:06.713830" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-5.bin"&gt;/tests/results-5.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-5.bin"&gt;/tests/results/results-5.bin&lt;/a&gt;'.</msg>
-<msg time="2024-05-02T21:17:06.715074" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-1.bin"&gt;/tests/results-1.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-1.bin"&gt;/tests/results/results-1.bin&lt;/a&gt;'.</msg>
-<msg time="2024-05-02T21:17:06.716332" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-0.bin"&gt;/tests/results-0.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-0.bin"&gt;/tests/results/results-0.bin&lt;/a&gt;'.</msg>
-<msg time="2024-05-02T21:17:06.717615" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-2.bin"&gt;/tests/results-2.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-2.bin"&gt;/tests/results/results-2.bin&lt;/a&gt;'.</msg>
-<msg time="2024-05-02T21:17:06.718733" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-3.bin"&gt;/tests/results-3.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-3.bin"&gt;/tests/results/results-3.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.128594" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-4.bin"&gt;/tests/results-4.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-4.bin"&gt;/tests/results/results-4.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.130115" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-5.bin"&gt;/tests/results-5.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-5.bin"&gt;/tests/results/results-5.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.131891" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-1.bin"&gt;/tests/results-1.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-1.bin"&gt;/tests/results/results-1.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.133794" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-0.bin"&gt;/tests/results-0.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-0.bin"&gt;/tests/results/results-0.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.135125" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-2.bin"&gt;/tests/results-2.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-2.bin"&gt;/tests/results/results-2.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:14:42.136307" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results-3.bin"&gt;/tests/results-3.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results-3.bin"&gt;/tests/results/results-3.bin&lt;/a&gt;'.</msg>
 <arg>${EXECDIR}/*.bin</arg>
 <arg>${EXECDIR}/results/</arg>
 <doc>Moves specified files to the target directory.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.707862" elapsed="0.010965"/>
+<status status="PASS" start="2024-05-05T12:14:42.123295" elapsed="0.013092"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Vegeta Load Test Completed</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.719134" elapsed="0.000333"/>
+<status status="PASS" start="2024-05-05T12:14:42.136577" elapsed="0.000242"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Check the results.bin files found in... ${EXECDIR}/results</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.719615" elapsed="0.000262"/>
+<status status="PASS" start="2024-05-05T12:14:42.136959" elapsed="0.000361"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:05:33.130413" elapsed="693.589718"/>
+<status status="PASS" start="2024-05-05T12:03:09.561800" elapsed="692.575638"/>
 </kw>
 <kw name="Log Lines To Console">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...\n...\n...\n...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.721140" elapsed="0.000221"/>
+<status status="PASS" start="2024-05-05T12:14:42.138489" elapsed="0.000221"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:17:06.720562" elapsed="0.000889"/>
+<status status="PASS" start="2024-05-05T12:14:42.137877" elapsed="0.000914"/>
 </kw>
 <kw name="Trigger Only After Failure" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Automation Failure Detected Notify Team</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.722365" elapsed="0.000131"/>
+<status status="PASS" start="2024-05-05T12:14:42.139507" elapsed="0.000182"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:17:06.721758" elapsed="0.000827"/>
+<status status="PASS" start="2024-05-05T12:14:42.139188" elapsed="0.000600"/>
 </kw>
 <tag>Chaos_Tests</tag>
 <tag>Load_Tests</tag>
 <tag>Run_All_Tests</tag>
-<status status="PASS" start="2024-05-02T21:05:33.124565" elapsed="693.598151"/>
+<status status="PASS" start="2024-05-05T12:03:09.555954" elapsed="692.583965"/>
 </test>
-<test id="s1-t2" name="VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds." line="60">
+<test id="s1-t2" name="VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds." line="57">
 <kw name="Automation Section For Slack Notifications">
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-05-02T21:17:06.726351" level="INFO">${AUTOMATION_SECTION_NAME} = VVEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS</msg>
+<msg time="2024-05-05T12:14:42.143505" level="INFO">${AUTOMATION_SECTION_NAME} = VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS</msg>
 <arg>${AUTOMATION_SECTION_NAME}</arg>
 <arg>${AUTOMATION_SECTION}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.725830" elapsed="0.000637"/>
+<status status="PASS" start="2024-05-05T12:14:42.142879" elapsed="0.000728"/>
 </kw>
-<arg>VVEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS</arg>
-<status status="PASS" start="2024-05-02T21:17:06.725379" elapsed="0.001238"/>
+<arg>VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS</arg>
+<status status="PASS" start="2024-05-05T12:14:42.142524" elapsed="0.001214"/>
 </kw>
 <kw name="Log Lines To Console">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...\n...\n...\n...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.727505" elapsed="0.000282"/>
+<status status="PASS" start="2024-05-05T12:14:42.144792" elapsed="0.000370"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:17:06.726967" elapsed="0.001173"/>
+<status status="PASS" start="2024-05-05T12:14:42.144326" elapsed="0.000961"/>
+</kw>
+<kw name="Create Base64 JQ Output From Given String">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-05T12:14:42.147810" level="INFO">Running command 'echo -n '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' | jq -r '@base64' 2&gt;&amp;1'.</msg>
+<msg time="2024-05-05T12:14:42.190558" level="INFO">${BASE64_OUTPUT} = eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ==</msg>
+<var>${BASE64_OUTPUT}</var>
+<arg>echo -n '${STRING_INPUT}' | jq -r '@base64'</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-05T12:14:42.146140" elapsed="0.044510"/>
+</kw>
+<return>
+<value>${BASE64_OUTPUT}</value>
+<status status="PASS" start="2024-05-05T12:14:42.190747" elapsed="0.000079"/>
+</return>
+<msg time="2024-05-05T12:14:42.191075" level="INFO">${BASE64_OUTPUT} = eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ==</msg>
+<var>${BASE64_OUTPUT}</var>
+<arg>{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}</arg>
+<status status="PASS" start="2024-05-05T12:14:42.145631" elapsed="0.045470"/>
 </kw>
 <kw name="Run Custom Vegeta Load Test Connected To Toxiproxy">
 <kw name="Remove File" owner="OperatingSystem">
-<msg time="2024-05-02T21:17:06.731733" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
+<msg time="2024-05-05T12:14:42.193925" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
 <arg>${EXECDIR}/*.bin</arg>
 <doc>Removes a file with the given path.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.729266" elapsed="0.002820"/>
+<status status="PASS" start="2024-05-05T12:14:42.191876" elapsed="0.002255"/>
 </kw>
 <kw name="Run Specific Parameters Vegeta Load Test" owner="VegetaLoadTestLibrary">
-<msg time="2024-05-02T21:17:27.098006" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 100 -duration 10s -url http://0.0.0.0:8080/store/order/9 -method GET -body  -output results.bin
+<msg time="2024-05-05T12:15:02.527491" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 100 -duration 10s -url http://0.0.0.0:8080/store/order -method POST -body eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ== -output results.bin
+Vegeta load test executed successfully: 
+
+Vegeta Load Test Runner - Results
+
+
+Requests: 1000
+StatusCodes: map[400:1000]
+Errors [400 Bad Request]
+Success Rate: 0 %
+Latencies (ms):
+ - Mean: 10.007496668s
+ - 50th percentile: 10.007193346s
+ - 95th percentile: 10.008936967s
+ - 99th percentile: 10.016656432s
+ - Max: 10.026664696s</msg>
+<arg>${USER_DEFINED_TEST_RATE}</arg>
+<arg>${USER_DEFINED_TEST_DURATION}</arg>
+<arg>${USER_DEFINED_URL}</arg>
+<arg>${USER_DEFINED_METHOD}</arg>
+<arg>${USER_DEFINED_TEST_REQUEST_BODY}</arg>
+<arg>${USER_DEFINED_TEST_OUTPUT_FILE}</arg>
+<doc>Runs the vegeta-load-test-runner.go automation with specific given parameters for more customization.</doc>
+<status status="PASS" start="2024-05-05T12:14:42.194326" elapsed="20.333324"/>
+</kw>
+<kw name="Move Files" owner="OperatingSystem">
+<msg time="2024-05-05T12:15:02.532514" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results.bin"&gt;/tests/results.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results.bin"&gt;/tests/results/results.bin&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/*.bin</arg>
+<arg>${EXECDIR}/results/</arg>
+<doc>Moves specified files to the target directory.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.527895" elapsed="0.004741"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Vegeta Load Test Completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.532840" elapsed="0.000332"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Check the results.bin files found in... ${EXECDIR}/results</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.533380" elapsed="0.000296"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order</arg>
+<arg>${BASE64_OUTPUT}</arg>
+<arg>POST</arg>
+<status status="PASS" start="2024-05-05T12:14:42.191431" elapsed="20.342337"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.534540" elapsed="0.000221"/>
+</kw>
+<status status="PASS" start="2024-05-05T12:15:02.534024" elapsed="0.000820"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.535995" elapsed="0.000148"/>
+</kw>
+<status status="PASS" start="2024-05-05T12:15:02.535355" elapsed="0.000971"/>
+</kw>
+<tag>Chaos_Tests</tag>
+<tag>Load_Tests</tag>
+<tag>Run_All_Tests</tag>
+<status status="PASS" start="2024-05-05T12:14:42.140576" elapsed="20.395916"/>
+</test>
+<test id="s1-t3" name="VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds." line="65">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-05T12:15:02.539000" level="INFO">${AUTOMATION_SECTION_NAME} = VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.538728" elapsed="0.000333"/>
+</kw>
+<arg>VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS</arg>
+<status status="PASS" start="2024-05-05T12:15:02.538200" elapsed="0.001021"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.539725" elapsed="0.000226"/>
+</kw>
+<status status="PASS" start="2024-05-05T12:15:02.539455" elapsed="0.000684"/>
+</kw>
+<kw name="Run Custom Vegeta Load Test Connected To Toxiproxy">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-05T12:15:02.542745" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/*.bin</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-05T12:15:02.541311" elapsed="0.001535"/>
+</kw>
+<kw name="Run Specific Parameters Vegeta Load Test" owner="VegetaLoadTestLibrary">
+<msg time="2024-05-05T12:15:22.882836" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 100 -duration 10s -url http://0.0.0.0:8080/store/order/9 -method GET -body  -output results.bin
 Vegeta load test executed successfully: 
 
 Vegeta Load Test Runner - Results
@@ -229,11 +343,11 @@ StatusCodes: map[200:1000]
 Errors []
 Success Rate: 100 %
 Latencies (ms):
- - Mean: 10.006886421s
- - 50th percentile: 10.006476681s
- - 95th percentile: 10.008393948s
- - 99th percentile: 10.019093287s
- - Max: 10.043903905s</msg>
+ - Mean: 10.006626987s
+ - 50th percentile: 10.006387922s
+ - 95th percentile: 10.008125823s
+ - 99th percentile: 10.014043556s
+ - Max: 10.025027571s</msg>
 <arg>${USER_DEFINED_TEST_RATE}</arg>
 <arg>${USER_DEFINED_TEST_DURATION}</arg>
 <arg>${USER_DEFINED_URL}</arg>
@@ -241,62 +355,64 @@ Latencies (ms):
 <arg>${USER_DEFINED_TEST_REQUEST_BODY}</arg>
 <arg>${USER_DEFINED_TEST_OUTPUT_FILE}</arg>
 <doc>Runs the vegeta-load-test-runner.go automation with specific given parameters for more customization.</doc>
-<status status="PASS" start="2024-05-02T21:17:06.732406" elapsed="20.365746"/>
+<status status="PASS" start="2024-05-05T12:15:02.543008" elapsed="20.341283"/>
 </kw>
 <kw name="Move Files" owner="OperatingSystem">
-<msg time="2024-05-02T21:17:27.102643" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results.bin"&gt;/tests/results.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results.bin"&gt;/tests/results/results.bin&lt;/a&gt;'.</msg>
+<msg time="2024-05-05T12:15:22.887841" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results.bin"&gt;/tests/results.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results.bin"&gt;/tests/results/results.bin&lt;/a&gt;'.</msg>
 <arg>${EXECDIR}/*.bin</arg>
 <arg>${EXECDIR}/results/</arg>
 <doc>Moves specified files to the target directory.</doc>
-<status status="PASS" start="2024-05-02T21:17:27.098463" elapsed="0.004375"/>
+<status status="PASS" start="2024-05-05T12:15:22.884570" elapsed="0.003376"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Vegeta Load Test Completed</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:27.103125" elapsed="0.000300"/>
+<status status="PASS" start="2024-05-05T12:15:22.888184" elapsed="0.000232"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Check the results.bin files found in... ${EXECDIR}/results</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:27.103733" elapsed="0.000323"/>
+<status status="PASS" start="2024-05-05T12:15:22.888559" elapsed="0.000395"/>
 </kw>
 <arg>http://0.0.0.0:8080/store/order/9</arg>
-<status status="PASS" start="2024-05-02T21:17:06.728563" elapsed="20.375603"/>
+<arg>${EMPTY}</arg>
+<arg>GET</arg>
+<status status="PASS" start="2024-05-05T12:15:02.540495" elapsed="20.348749"/>
 </kw>
 <kw name="Log Lines To Console">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...\n...\n...\n...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-02T21:17:27.104968" elapsed="0.000268"/>
+<status status="PASS" start="2024-05-05T12:15:22.890516" elapsed="0.000237"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:17:27.104556" elapsed="0.000879"/>
+<status status="PASS" start="2024-05-05T12:15:22.889947" elapsed="0.000889"/>
 </kw>
 <kw name="Trigger Only After Failure" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Automation Failure Detected Notify Team</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2024-05-02T21:17:27.106197" elapsed="0.000189"/>
+<status status="PASS" start="2024-05-05T12:15:22.891669" elapsed="0.000099"/>
 </kw>
-<status status="PASS" start="2024-05-02T21:17:27.105813" elapsed="0.000689"/>
+<status status="PASS" start="2024-05-05T12:15:22.891251" elapsed="0.000586"/>
 </kw>
 <tag>Chaos_Tests</tag>
 <tag>Load_Tests</tag>
 <tag>Run_All_Tests</tag>
-<status status="PASS" start="2024-05-02T21:17:06.723337" elapsed="20.383315"/>
+<status status="PASS" start="2024-05-05T12:15:02.537022" elapsed="20.354929"/>
 </test>
-<status status="PASS" start="2024-05-02T21:05:33.060607" elapsed="714.047157"/>
+<status status="PASS" start="2024-05-05T12:03:09.508701" elapsed="733.384181"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="0" skip="0">Chaos_Tests</stat>
-<stat pass="2" fail="0" skip="0">Load_Tests</stat>
-<stat pass="2" fail="0" skip="0">Run_All_Tests</stat>
+<stat pass="3" fail="0" skip="0">Chaos_Tests</stat>
+<stat pass="3" fail="0" skip="0">Load_Tests</stat>
+<stat pass="3" fail="0" skip="0">Run_All_Tests</stat>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
 </suite>
 </statistics>
 <errors>
