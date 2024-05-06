@@ -22,7 +22,7 @@
 - Listener Interface that monitors every test and performs actions during runtime
 - Control specific groups of tests or isolate the automation to run only one test
 - Automation metrics and results easily combined into a single detailed log
-- Clear and clickable automation traceability from the log to CI pipeline URLs the acceptance criteria (Jira, Test Management Platforms... TestRail etc.)
+- Powerful built-in automation documentation traceability from the log that can tie CI pipeline URLs to acceptance criteria and test IDs (Jira, Test Management Platforms... TestRail etc.)
 
 This repository is a `collection of Go Language test tools` and strategies [enhanced with Robot Framework](https://robotframework.org/), an open source RPA (Robotic Process Automation) and generic automation framework. The goal is to demonstrate how these two sides can work together to form a more powerful test strategy than just one side by itself. Here is a list of the Go Language tools and components that are being utilized. The examples utilizing these components and tools can also be used without RPA for hands-on exploratory testing.
 - [go test](https://pkg.go.dev/testing), the built-in Go Language test tool
@@ -115,9 +115,11 @@ When the `DurationTrackingListener.py` is set to a very low number (for example,
 
 ![Slack](./images/image6.png)
 
-Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file, or run specific tests by their `Test_ID` (found in test management tools such as [Zephyr Scale](https://smartbear.com/test-management/zephyr-scale/) or [TestRail](https://www.testrail.com/)) or `Jira_ID`. This is useful for a quick overview of all test results/metrics in one place and see which Test_ID/[Jira_ID](https://www.atlassian.com/software/jira) each test is mapped to. The screenshot of the `combined-test-results-log.html` below demonstrates these features.
+Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file, or run specific tests by their `Test_ID` (found in test management tools such as [Zephyr Scale](https://smartbear.com/test-management/zephyr-scale/) or [TestRail](https://www.testrail.com/)) or `Jira_ID`. This is useful for a quick overview of all test results/metrics in one place and see which Test_ID/[Jira_ID](https://www.atlassian.com/software/jira) each test is mapped to. The screenshots of the `combined-test-results-log.html` below demonstrates these features.
 
 ![Metrics](./images/image7.png)
+
+![Metrics](./images/image8.png)
 
 ### [Automation Workflows] Tool Runner Script Options
 
