@@ -12,6 +12,8 @@
 
 ---
 
+### Advantages Of Combining Go + RPA
+
 `Go Language` by itself is [a powerful and high-performance language built for scalability](https://go.dev/solutions/case-studies). It has many libraries that can be used to create automation, but there are some exploratory test strategies that can be more easily implemented (with less lines of code) using a `generic RPA framework` to complement the strengths of Go. For example, the following strategies are not easy to quickly create within a day or two using only pure Go Language code.
 - [Model-Based Tests using Graphwalker's visual .graphml files](https://graphwalker.github.io/), combined with Chaos Tests
 - Load Tests combined with Chaos Tests 
@@ -20,6 +22,7 @@
 - Listener Interface that monitors every test and performs actions during runtime
 - Control specific groups of tests or isolate the automation to run only one test
 - Automation metrics and results easily combined into a single detailed log
+- Clear and clickable automation traceability from the log to the acceptance criteria (Jira etc.)
 
 This repository is a `collection of Go Language test tools` and strategies [enhanced with Robot Framework](https://robotframework.org/), an open source RPA (Robotic Process Automation) and generic automation framework. The goal is to demonstrate how these two sides can work together to form a more powerful test strategy than just one side by itself. Here is a list of the Go Language tools and components that are being utilized. The examples utilizing these components and tools can also be used without RPA for hands-on exploratory testing.
 - [go test](https://pkg.go.dev/testing), the built-in Go Language test tool
