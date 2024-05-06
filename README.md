@@ -16,7 +16,7 @@
 - Mutational Fuzz Tests combined with Model-Based Tests 
 - Slack-bots that report failures on all of the above
 - Listener Interface that monitors every test and performs actions during runtime
-- Control specific groups of tests or isolate a test run to only one test
+- Control specific groups of tests or isolate the automation to run only one test
 - Automation metrics and results easily combined into a single detailed log
 
 This repository is a `collection of Go Language test tools` and strategies [enhanced with Robot Framework](https://robotframework.org/), an open source RPA (Robotic Process Automation) and generic automation framework. The goal is to demonstrate how these two sides can work together to form a more powerful test strategy than just one side by itself. Here is a list of the Go Language tools and components that are being utilized. The examples utilizing these components and tools can also be used without RPA for hands-on exploratory testing.
