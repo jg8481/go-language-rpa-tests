@@ -108,7 +108,7 @@ When the `DurationTrackingListener.py` is set to a very low number (for example,
 
 ![Slack](./images/image6.png)
 
-Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file, or run specific tests by their `Test_ID` (found in test management tools such as [Zephyr Scale](https://smartbear.com/test-management/zephyr-scale/) or [TestRail](https://www.testrail.com/)) or `Jira_ID`. This is useful for a quick overview of all test results/metrics in one place and see which Test/[Jira_ID](https://www.atlassian.com/software/jira) each test is mapped to. The screenshot of the `combined-test-results-log.html` below demonstrates these features.
+Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file, or run specific tests by their `Test_ID` (found in test management tools such as [Zephyr Scale](https://smartbear.com/test-management/zephyr-scale/) or [TestRail](https://www.testrail.com/)) or `Jira_ID`. This is useful for a quick overview of all test results/metrics in one place and see which Test_ID/[Jira_ID](https://www.atlassian.com/software/jira) each test is mapped to. The screenshot of the `combined-test-results-log.html` below demonstrates these features.
 
 ![Metrics](./images/image7.png)
 
