@@ -154,7 +154,7 @@ if [ "$1" == "Start-With-Test-ID-Or-Jira-ID" ]; then
   echo
   echo "------------------------------------[[[[ Start-With-Test-ID-Or-Jira-ID ]]]]------------------------------------"
   echo
-  echo "This Start-With-Test-ID-Or-Jira-ID script is running inside a Docker container. This run started on $TIMESTAMP."
+  echo "This Start-With-Test-ID-Or-Jira-ID "$2" script is running inside a Docker container. This run started on $TIMESTAMP."
   echo
   rm -rf ./*.bin
   cd /tests
@@ -164,7 +164,7 @@ if [ "$1" == "Start-With-Test-ID-Or-Jira-ID" ]; then
   go version
   go get 
   sleep 3
-  robot --include "$2" --listener ./resources/DurationTrackingListener.py --report NONE --log specific-test-results-log.html --output specific-test-results-output.xml -d ./results ./generic-automation.robot 
+  robot --include "$2" --listener ./resources/DurationTrackingListener.py --report NONE --log specific-test-results-"$2"-log.html --output specific-test-results-"$2"-output.xml -d ./results ./generic-automation.robot 
   rm -rf ./*.bin
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
