@@ -40,21 +40,24 @@ MODEL-BASED CHAOS TESTS SETUP : Create a new Graphwalker Path File for the Model
     Create Graphwalker Path File
     Log Lines To Console
 
-MODEL-BASED CHAOS TESTS RUNNER : Run the Graphwalker Path File for the Model-Based Chaos Tests. The Graphwalker Model combines API Functional Test, Chaos Test, and Mutational Fuzz Test strategies.
+MODEL-BASED CHAOS TESTS RUNNER - Test_ID1 : Run the Graphwalker Path File for the Model-Based Chaos Tests. The Graphwalker Model combines API Functional Test, Chaos Test, and Mutational Fuzz Test strategies.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID1|Test_ID1]
     [Tags]    Test_ID1    Jira_ID1    Model-Based_Tests    Exploratory_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    MODEL-BASED CHAOS TESTS RUNNER
     Log Lines To Console
     Run Graphwalker Model Based Tests    GraphwalkerPath.csv
     Log Lines To Console
 
-VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connect to Toxiproxy and ramp up.
+VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER - Test_ID2 : Run the Vegeta Load Tests that connect to Toxiproxy and ramp up.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID2|Test_ID2]
     [Tags]    Test_ID2    Jira_ID2    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - RAMP UP
     Log Lines To Console
     Run Ramp Up Load Test Connected To Toxiproxy
     Log Lines To Console
 
-VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS - Test_ID13 : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID3|Test_ID3]
     [Tags]    Test_ID3    Jira_ID3    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS
     Log Lines To Console
@@ -62,38 +65,44 @@ VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the
     Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order    ${BASE64_OUTPUT}    POST
     Log Lines To Console
 
-VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS - Test_ID4 : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID4|Test_ID4]
     [Tags]    Test_ID4    Jira_ID4    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS
     Log Lines To Console
     Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order/9    ${EMPTY}    GET
     Log Lines To Console
 
-GO TEST FUNCTIONAL TESTS - GET /USER/USERNAME : Analyze the Go Httpstat functional test for a GET request on the /user/vitae API endpoint
+GO TEST FUNCTIONAL TESTS - GET /USER/USERNAME - Test_ID5 : Analyze the Go Httpstat functional test for a GET request on the /user/vitae API endpoint.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID5|Test_ID5]
     [Tags]    Test_ID5    Jira_ID5    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    vitae    PASS
     Log Lines To Console
 
-GO TEST FUNCTIONAL TESTS - GET /NO_AUTH/PETS/FINDBYSTATUS : Analyze the Go Httpstat functional test for a GET request on the /no_auth/pets/findByStatus API endpoint
+GO TEST FUNCTIONAL TESTS - GET /NO_AUTH/PETS/FINDBYSTATUS - Test_ID6 : Analyze the Go Httpstat functional test for a GET request on the /no_auth/pets/findByStatus API endpoint.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID6|Test_ID6]
     [Tags]    Test_ID6    Jira_ID6    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    findByStatus    PASS
     Log Lines To Console
 
-GO TEST FUNCTIONAL TESTS - GET /STORE/ORDER/NUMBER : Analyze the Go Httpstat functional test for a GET request on the /store/order/9 API endpoint
+GO TEST FUNCTIONAL TESTS - GET /STORE/ORDER/NUMBER - Test_ID7 : Analyze the Go Httpstat functional test for a GET request on the /store/order/9 API endpoint.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID7|Test_ID7]
     [Tags]    Test_ID7    Jira_ID7    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    store/order/9    PASS
     Log Lines To Console
 
-GO TEST FUNCTIONAL TESTS - POST /STORE/ORDER : Analyze the Go Httpstat functional test for a POST request on the /store/order API endpoint. This will create a new order.
+GO TEST FUNCTIONAL TESTS - POST /STORE/ORDER - Test_ID8 : Analyze the Go Httpstat functional test for a POST request on the /store/order API endpoint. This will create a new order.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID8|Test_ID8]
     [Tags]    Test_ID8    Jira_ID8    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    POST_http://0.0.0.0:4010/store/order    PASS
     Log Lines To Console
 
-GO TEST FUNCTIONAL TESTS - POST /USER : Analyze the Go Httpstat functional test for a POST request on the /user API endpoint. This will create a new user.
+GO TEST FUNCTIONAL TESTS - POST /USER - Test_ID9 : Analyze the Go Httpstat functional test for a POST request on the /user API endpoint. This will create a new user.
+    [Documentation]    Click this link to view test documentation traceability : [ https://test-management-platform.com/Test_ID9|Test_ID9]
     [Tags]    Test_ID9    Jira_ID9    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    POST_http://0.0.0.0:4010/user    PASS
