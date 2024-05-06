@@ -44,7 +44,7 @@ if [ "$1" == "Run-Specific-Tests-Inside-Docker" ]; then
   docker-compose -f docker-compose.yml down
   docker-compose -f docker-compose.yml rm -f
   docker-compose -f docker-compose.yml build
-  docker-compose run docker-test-runner run-go-rpa-tests.sh "$2"
+  docker-compose run docker-test-runner run-go-rpa-tests.sh "$2" "$3"
   ## Un-comment the line below to manually explore or debug any tests in the Go Language files or the API mock/proxy tools. Please comment out the line above if you need to only run the tesing and debugging script below.
   #docker-compose run docker-test-runner run-go-rpa-tests.sh Manual-Scripted-Tests-In-Docker
   docker stop $(docker ps -a -q) &&
