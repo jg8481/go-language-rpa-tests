@@ -14,7 +14,7 @@
 
 ### Advantages Of Combining Go + RPA
 
-`Go Language` by itself is [a powerful and high-performance language built for scalability](https://go.dev/solutions/case-studies). It has many libraries that can be used to create automation, but there are some exploratory test strategies that can be more easily implemented (with less lines of code) using a `generic RPA framework` to complement the strengths of Go. For example, the following strategies are not easy to quickly create within a day or two using only pure Go Language code.
+`Go Language` by itself is [a powerful and high-performance language built for scalability](https://go.dev/solutions/case-studies). It has many libraries that can be used to create automation, but there are some high-level test strategies that can be more easily implemented (with less lines of code) using a `generic RPA framework` to complement the strengths of Go. For example, the following strategies are not easy to quickly create within a day or two using only pure Go Language code.
 - [Model-Based Tests using Graphwalker's visual .graphml files](https://graphwalker.github.io/), combined with Chaos Tests
 - Load Tests combined with Chaos Tests 
 - Mutational Fuzz Tests combined with Model-Based Tests 
