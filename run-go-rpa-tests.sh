@@ -150,6 +150,26 @@ if [ "$1" == "Start-All-Tests" ]; then
   echo "This test run ended on $TIMESTAMP2."
 fi
 
+if [ "$1" == "Start-With-Test-ID-Or-Jira-ID" ]; then
+  echo
+  echo "------------------------------------[[[[ Start-With-Test-ID-Or-Jira-ID ]]]]------------------------------------"
+  echo
+  echo "This Start-With-Test-ID-Or-Jira-ID script is running inside a Docker container. This run started on $TIMESTAMP."
+  echo
+  rm -rf ./*.bin
+  cd /tests
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
+  sleep 3
+  ls -la
+  go version
+  go get 
+  sleep 3
+  robot --include "$2" --listener ./resources/DurationTrackingListener.py --report NONE --log specific-test-results-log.html --output specific-test-results-output.xml -d ./results ./generic-automation.robot 
+  rm -rf ./*.bin
+  TIMESTAMP2=$(date)
+  echo "This test run ended on $TIMESTAMP2."
+fi
+
 if [ "$1" == "Manual-Scripted-Tests-In-Docker" ]; then
   echo
   echo "------------------------------------[[[[ Manual-Scripted-Tests-In-Docker ]]]]------------------------------------"
