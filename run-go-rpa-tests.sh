@@ -62,13 +62,13 @@ if [ "$1" == "Start-Chaos-Proxy-Model-Based-Tests" ]; then
   echo "This Start-Chaos-Proxy-Model-Based-Tests script is running inside a Docker container. This run started on $TIMESTAMP."
   echo
   cd /tests
-  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
   sleep 3
   ls -la
   go version
   go get 
   sleep 3
-  robot --include Model-Based_Tests --listener ./resources/DurationTrackingListener.py --report NONE --log chaos-proxy-model-based-tests-log.html --output chaos-proxy-model-based-tests-output.xml -d ./results ./generic-automation.robot 
+  robot --include Model-Based_Tests --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log chaos-proxy-model-based-tests-log.html --output chaos-proxy-model-based-tests-output.xml -d ./results ./generic-automation.robot 
   rm -rf ./*.bin
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
@@ -82,13 +82,13 @@ if [ "$1" == "Start-Chaos-Proxy-Load-Tests" ]; then
   echo
   rm -rf ./*.bin
   cd /tests
-  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
   sleep 3
   ls -la
   go version
   go get 
   sleep 3
-  robot --include Load_Tests --listener ./resources/DurationTrackingListener.py --report NONE --log chaos-proxy-load-tests-log.html --output chaos-proxy-load-tests-output.xml -d ./results ./generic-automation.robot 
+  robot --include Load_Tests --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log chaos-proxy-load-tests-log.html --output chaos-proxy-load-tests-output.xml -d ./results ./generic-automation.robot 
   rm -rf ./*.bin
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
@@ -103,7 +103,7 @@ if [ "$1" == "Start-Go-Language-Functional-Tests" ]; then
   rm -rf ./resources/go-test-output.json
   rm -rf ./resources/go-test-console-results.log
   cd /tests
-  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot
   sleep 3
   ls -la
   go version
@@ -125,7 +125,7 @@ if [ "$1" == "Analyze-Functional-Tests-Generate-HTML-Logs" ]; then
   echo
   cd /tests
   ls -la
-  robot --include Functional_Tests_Analysis --listener ./resources/DurationTrackingListener.py --report NONE --log go-test-api-functional-test-log.html --output go-test-api-functional-test-output.xml -d ./results ./generic-automation.robot
+  robot --include Functional_Tests_Analysis --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log go-test-api-functional-test-log.html --output go-test-api-functional-test-output.xml -d ./results ./generic-automation.robot
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
 fi
@@ -138,13 +138,13 @@ if [ "$1" == "Start-All-Tests" ]; then
   echo
   rm -rf ./*.bin
   cd /tests
-  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
   sleep 3
   ls -la
   go version
   go get 
   sleep 3
-  robot --include Run_All_Tests --listener ./resources/DurationTrackingListener.py --report NONE --log combined-test-results-log.html --output combined-test-results-output.xml -d ./results ./generic-automation.robot 
+  robot --include Run_All_Tests --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log combined-test-results-log.html --output combined-test-results-output.xml -d ./results ./generic-automation.robot 
   rm -rf ./*.bin
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
@@ -158,13 +158,13 @@ if [ "$1" == "Start-With-Test-ID-Or-Jira-ID" ]; then
   echo
   rm -rf ./*.bin
   cd /tests
-  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
+  robot --include Tests_Setup --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log test-setup-log.html --output test-setup-output.xml -d ./results ./generic-automation.robot 
   sleep 3
   ls -la
   go version
   go get 
   sleep 3
-  robot --include "$2" --listener ./resources/DurationTrackingListener.py --report NONE --log specific-test-results-"$2"-log.html --output specific-test-results-"$2"-output.xml -d ./results ./generic-automation.robot 
+  robot --include "$2" --listener ./resources/DurationTrackingListener.py --doc "CI_PIPELINE_URL : https://github.com/jg8481/go-language-rpa-tests/actions" --report NONE --log specific-test-results-"$2"-log.html --output specific-test-results-"$2"-output.xml -d ./results ./generic-automation.robot 
   rm -rf ./*.bin
   TIMESTAMP2=$(date)
   echo "This test run ended on $TIMESTAMP2."
