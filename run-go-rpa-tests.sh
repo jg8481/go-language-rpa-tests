@@ -228,6 +228,8 @@ usage_explanation() {
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests"
+  echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-With-Test-ID-Or-Jira-ID Test_ID3"
+  echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-With-Test-ID-Or-Jira-ID Jira_ID2"
   echo "bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker"
   echo
   echo
