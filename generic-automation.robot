@@ -41,21 +41,21 @@ MODEL-BASED CHAOS TESTS SETUP : Create a new Graphwalker Path File for the Model
     Log Lines To Console
 
 MODEL-BASED CHAOS TESTS RUNNER : Run the Graphwalker Path File for the Model-Based Chaos Tests. The Graphwalker Model combines API Functional Test, Chaos Test, and Mutational Fuzz Test strategies.
-    [Tags]    Model-Based_Tests    Exploratory_Tests    Chaos_Tests    Run_All_Tests
+    [Tags]    Test_ID1    Model-Based_Tests    Exploratory_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    MODEL-BASED CHAOS TESTS RUNNER
     Log Lines To Console
     Run Graphwalker Model Based Tests    GraphwalkerPath.csv
     Log Lines To Console
 
 VEGETA CHAOS LOAD TESTS - RAMP UP RUNNER : Run the Vegeta Load Tests that connect to Toxiproxy and ramp up.
-    [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
+    [Tags]    Test_ID2    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - RAMP UP
     Log Lines To Console
     Run Ramp Up Load Test Connected To Toxiproxy
     Log Lines To Console
 
 VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
-    [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
+    [Tags]    Test_ID3    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS
     Log Lines To Console
     ${BASE64_OUTPUT}=    Create Base64 JQ Output From Given String    {"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}
@@ -63,38 +63,38 @@ VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the
     Log Lines To Console
 
 VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds.
-    [Tags]    Load_Tests    Chaos_Tests    Run_All_Tests
+    [Tags]    Test_ID4    Load_Tests    Chaos_Tests    Run_All_Tests
     Automation Section For Slack Notifications    VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - GET REQUESTS
     Log Lines To Console
     Run Custom Vegeta Load Test Connected To Toxiproxy    http://0.0.0.0:8080/store/order/9    ${EMPTY}    GET
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - GET /USER/USERNAME : Analyze the Go Httpstat functional test for a GET request on the /user/vitae API endpoint
-    [Tags]    robot:skip-on-failure    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
+    [Tags]    Test_ID5    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    vitae    PASS
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - GET /NO_AUTH/PETS/FINDBYSTATUS : Analyze the Go Httpstat functional test for a GET request on the /no_auth/pets/findByStatus API endpoint
-    [Tags]    robot:skip-on-failure    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
+    [Tags]    Test_ID6    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    findByStatus    PASS
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - GET /STORE/ORDER/NUMBER : Analyze the Go Httpstat functional test for a GET request on the /store/order/9 API endpoint
-    [Tags]    robot:skip-on-failure    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
+    [Tags]    Test_ID7    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    store/order/9    PASS
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - POST /STORE/ORDER : Analyze the Go Httpstat functional test for a POST request on the /store/order API endpoint. This will create a new order.
-    [Tags]    robot:skip-on-failure    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
+    [Tags]    Test_ID8    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    POST_http://0.0.0.0:4010/store/order    PASS
     Log Lines To Console
 
 GO TEST FUNCTIONAL TESTS - POST /USER : Analyze the Go Httpstat functional test for a POST request on the /user API endpoint. This will create a new user.
-    [Tags]    robot:skip-on-failure    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
+    [Tags]    Test_ID9    Functional_Tests_Analysis    Functional_Tests    Run_All_Tests
     Log Lines To Console
     Analyze Go Test Results    POST_http://0.0.0.0:4010/user    PASS
     Log Lines To Console
