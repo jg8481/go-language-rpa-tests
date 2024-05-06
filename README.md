@@ -14,7 +14,7 @@
 - [Model-Based Tests using Graphwalker's visual .graphml files](https://graphwalker.github.io/), combined with Chaos Tests
 - Load Tests combined with Chaos Tests 
 - Mutational Fuzz Tests combined with Model-Based Tests 
-- Slack bots that report failures on all of the above
+- Slack-bots that report failures on all of the above
 - Listener Interface that monitors every test and performs actions during runtime
 
 This repository is a `collection of Go Language test tools` and strategies [enhanced with Robot Framework](https://robotframework.org/), an open source RPA (Robotic Process Automation) and generic automation framework. The goal is to demonstrate how these two sides can work together to form a more powerful test strategy than just one side by itself. Here is a list of the Go Language tools and components that are being utilized. The examples utilizing these components and tools can also be used without RPA for hands-on exploratory testing.
@@ -90,9 +90,9 @@ More information about Model-based Testing can be found in the links below.
 - https://www.harryrobinson.net/
 - https://testoptimal.com/ref/starwest-2006-mbt-tutorial.pdf
 
-### [RPA Bonus Features] Slack bot + Listener Interface + Combined Test Metrics Results
+### [RPA Bonus Features] Slack-bot + Listener Interface + Combined Test Metrics Results
 
-The Slack bot is a part of the `generic-automation.robot` file, and will send a Slack message using [slacktee](https://github.com/coursehero/slacktee) when any tests fail. The screenshots below demonstrate how a Model-based Test failure is sent to a specific Slack channel.
+The Slack-bot is a part of the `generic-automation.robot` file, and will send a Slack message using [slacktee](https://github.com/coursehero/slacktee) when any tests fail. The screenshots below demonstrate how a Model-based Test failure is sent to a specific Slack channel.
 
 ![Test Failure](./images/image3.png)
 

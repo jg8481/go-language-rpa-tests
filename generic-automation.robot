@@ -132,8 +132,8 @@ Send Short Message Through Slack After Any Automation Failures
     ## This slacktee tool is a very simple to use Slack client that you can use to pipe text into Slack channels...
     ## https://github.com/coursehero/slacktee
     ##
-    ## To use this slacktee Slack bot automation, you must set up your own ".slacktee" config file using the given "template.slacktee".
-    ## The advantage of slacktee is any programming language, Linux Shell, or automation framework that can run on Linux can utilize it to quickly create a simple Slack bot. It can quickly turn tests into monitoring processes.
+    ## To use this slacktee Slack-bot automation, you must set up your own ".slacktee" config file using the given "template.slacktee".
+    ## The advantage of slacktee is any programming language, Linux Shell, or automation framework that can run on Linux can utilize it to quickly create a simple Slack-bot. It can quickly turn tests into monitoring processes.
     ##
     ## The following keyword will demonstrate slacktee...
     [Arguments]    ${TEST_NAME}    ${TEST_ENVIRONMENT}
@@ -238,7 +238,7 @@ check_api_response_log_files
     Should Not Contain Any    ${HTTPSTAT_RESPONSE_CONTENTS}    ERROR    error    errors    Not Allowed    no method    NO_METHOD_MATCHED_ERROR
 
 check_server_log_files
-    ## Un-comment this section if you want to test the slacktee Slack bot.
+    ## Un-comment this section if you want to test the slacktee Slack-bot.
     ## Fail    Checking Slack notifications.
     ${API_SERVER_LOG_CONTENTS}=     Get File    ${EXECDIR}/resources/api-application.log
     Log    ${API_SERVER_LOG_CONTENTS}
