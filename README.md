@@ -90,7 +90,7 @@ More information about Model-based Testing can be found in the links below.
 - https://www.harryrobinson.net/
 - https://testoptimal.com/ref/starwest-2006-mbt-tutorial.pdf
 
-### [RPA Bonus Features] Slack-bot + Listener Interface + Combined Test Metrics Results
+### [RPA Bonus Features] Slack-bot + Listener Interface + Specific Tag Runner + Combined Test Metrics Results
 
 The Slack-bot is a part of the `generic-automation.robot` file, and will send a Slack message using [slacktee](https://github.com/coursehero/slacktee) when any tests fail. The screenshots below demonstrate how a Model-based Test failure is sent to a specific Slack channel.
 
@@ -108,7 +108,7 @@ When the `DurationTrackingListener.py` is set to a very low number (for example,
 
 ![Slack](./images/image6.png)
 
-Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file. This is useful for a quick overview of all test results in one place. The screenshot of the `combined-test-results-log.html` below demonstrates this feature.
+Another useful side-effect of having the `generic-automation.robot` file act as an overseer of all tests is that it can combine the results of all tests into a single HTML log file, or run specific tests by their `Test_ID` (found in test management tools such as [Zephyr Scale](https://smartbear.com/test-management/zephyr-scale/) or [TestRail](https://www.testrail.com/)) or `Jira_ID`. This is useful for a quick overview of all test results/metrics in one place and see which Test/[Jira_ID](https://www.atlassian.com/software/jira) each test is mapped to. The screenshot of the `combined-test-results-log.html` below demonstrates these features.
 
 ![Metrics](./images/image7.png)
 
@@ -125,5 +125,7 @@ bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Mo
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-Chaos-Proxy-Load-Tests
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Analyze-Functional-Tests-Generate-HTML-Logs
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-All-Tests
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-With-Test-ID-Or-Jira-ID Test_ID3
+bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Start-With-Test-ID-Or-Jira-ID Jira_ID2
 bash ./run-go-rpa-tests.sh Run-Specific-Tests-Inside-Docker Manual-Scripted-Tests-In-Docker
 ```

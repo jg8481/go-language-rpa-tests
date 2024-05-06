@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-05-06T04:47:59.310473" rpa="false" schemaversion="5">
+<suite id="s1" name="Generic-Automation" source="/tests/generic-automation.robot">
+<test id="s1-t1" name="VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS : Run the Vegeta Load Tests with custom user defined parameters. This can run for seconds, minutes, hours, days etc. as long as the duration is given a valid amount of seconds." line="57">
+<kw name="Automation Section For Slack Notifications">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-06T04:47:59.399150" level="INFO">${AUTOMATION_SECTION_NAME} = VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS</msg>
+<arg>${AUTOMATION_SECTION_NAME}</arg>
+<arg>${AUTOMATION_SECTION}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-06T04:47:59.398105" elapsed="0.001119"/>
+</kw>
+<arg>VEGETA CHAOS LOAD TESTS - CUSTOMIZED PARAMETERS RUNNER - POST REQUESTS</arg>
+<status status="PASS" start="2024-05-06T04:47:59.396931" elapsed="0.002394"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-06T04:47:59.400081" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2024-05-06T04:47:59.399695" elapsed="0.000702"/>
+</kw>
+<kw name="Create Base64 JQ Output From Given String">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-05-06T04:47:59.402170" level="INFO">Running command 'echo -n '{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}' | jq -r '@base64' 2&gt;&amp;1'.</msg>
+<msg time="2024-05-06T04:47:59.445592" level="INFO">${BASE64_OUTPUT} = eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ==</msg>
+<var>${BASE64_OUTPUT}</var>
+<arg>echo -n '${STRING_INPUT}' | jq -r '@base64'</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-05-06T04:47:59.401161" elapsed="0.044484"/>
+</kw>
+<return>
+<value>${BASE64_OUTPUT}</value>
+<status status="PASS" start="2024-05-06T04:47:59.445740" elapsed="0.000069"/>
+</return>
+<msg time="2024-05-06T04:47:59.446002" level="INFO">${BASE64_OUTPUT} = eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ==</msg>
+<var>${BASE64_OUTPUT}</var>
+<arg>{"id": 9, "petId": 9, "quantity": 1, "shipDate": "2021-07-29T00:00:00.000Z", "status": "placed", "complete": true}</arg>
+<status status="PASS" start="2024-05-06T04:47:59.400835" elapsed="0.045193"/>
+</kw>
+<kw name="Run Custom Vegeta Load Test Connected To Toxiproxy">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2024-05-06T04:47:59.449694" level="INFO" html="true">File '&lt;a href="file:///tests/*.bin"&gt;/tests/*.bin&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/*.bin</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2024-05-06T04:47:59.447080" elapsed="0.002707"/>
+</kw>
+<kw name="Run Specific Parameters Vegeta Load Test" owner="VegetaLoadTestLibrary">
+<msg time="2024-05-06T04:48:20.946605" level="INFO">Running Vegeta load test: go run vegeta-load-test-runner.go -rate 100 -duration 10s -url http://0.0.0.0:8080/store/order -method POST -body eyJpZCI6OSwicGV0SWQiOjksInF1YW50aXR5IjoxLCJzaGlwRGF0ZSI6IjIwMjEtMDctMjlUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6InBsYWNlZCIsImNvbXBsZXRlIjp0cnVlfQ== -output results.bin
+Vegeta load test executed successfully: Vegeta Load Test Runner - Results
+Requests: 1000
+Success Rate: 0 %</msg>
+<arg>${USER_DEFINED_TEST_RATE}</arg>
+<arg>${USER_DEFINED_TEST_DURATION}</arg>
+<arg>${USER_DEFINED_URL}</arg>
+<arg>${USER_DEFINED_METHOD}</arg>
+<arg>${USER_DEFINED_TEST_REQUEST_BODY}</arg>
+<arg>${USER_DEFINED_TEST_OUTPUT_FILE}</arg>
+<doc>Runs the vegeta-load-test-runner.go automation with specific given parameters for more customization.</doc>
+<status status="PASS" start="2024-05-06T04:47:59.449961" elapsed="21.498974"/>
+</kw>
+<kw name="Move Files" owner="OperatingSystem">
+<msg time="2024-05-06T04:48:20.967701" level="INFO" html="true">Moved file from '&lt;a href="file:///tests/results.bin"&gt;/tests/results.bin&lt;/a&gt;' to '&lt;a href="file:///tests/results/results.bin"&gt;/tests/results/results.bin&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/*.bin</arg>
+<arg>${EXECDIR}/results/</arg>
+<doc>Moves specified files to the target directory.</doc>
+<status status="PASS" start="2024-05-06T04:48:20.954159" elapsed="0.014059"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Vegeta Load Test Completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-06T04:48:20.968901" elapsed="0.002328"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Check the results.bin files found in... ${EXECDIR}/results</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-06T04:48:20.971704" elapsed="0.001421"/>
+</kw>
+<arg>http://0.0.0.0:8080/store/order</arg>
+<arg>${BASE64_OUTPUT}</arg>
+<arg>POST</arg>
+<status status="PASS" start="2024-05-06T04:47:59.446384" elapsed="21.527767"/>
+</kw>
+<kw name="Log Lines To Console">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...\n...\n...\n...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-06T04:48:20.979908" elapsed="0.001006"/>
+</kw>
+<status status="PASS" start="2024-05-06T04:48:20.977434" elapsed="0.003769"/>
+</kw>
+<kw name="Trigger Only After Failure" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Automation Failure Detected Notify Team</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-05-06T04:48:20.983962" elapsed="0.001028"/>
+</kw>
+<status status="PASS" start="2024-05-06T04:48:20.982466" elapsed="0.002687"/>
+</kw>
+<tag>Chaos_Tests</tag>
+<tag>Jira_ID3</tag>
+<tag>Load_Tests</tag>
+<tag>Run_All_Tests</tag>
+<tag>Test_ID3</tag>
+<status status="PASS" start="2024-05-06T04:47:59.395597" elapsed="21.590213"/>
+</test>
+<status status="PASS" start="2024-05-06T04:47:59.329770" elapsed="21.663967"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Chaos_Tests</stat>
+<stat pass="1" fail="0" skip="0">Jira_ID3</stat>
+<stat pass="1" fail="0" skip="0">Load_Tests</stat>
+<stat pass="1" fail="0" skip="0">Run_All_Tests</stat>
+<stat pass="1" fail="0" skip="0">Test_ID3</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Generic-Automation">Generic-Automation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
