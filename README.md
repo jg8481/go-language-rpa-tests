@@ -8,7 +8,9 @@
 
 **"All testers do exploratory testing. Some do it more deliberately and in intentionally skilled ways." - [Cem Kaner](https://13j276.p3cdn1.secureserver.net/pdfs/QAIExploring.pdf)**
 
-**"Are you doing testing? Then you are already doing exploratory testing. Are you doing scripted testing? If you’re doing it responsibly, you are doing exploratory testing with scripting (and perhaps with checking)." - [James Bach](https://www.satisfice.com/blog/archives/1509)**
+**"Measurement, then, is just one means to an end. That end is: the marshaling of good evidence to inform our assessments of quality that can be used to make business decisions. (e.g. when to ship the product; how good is the product team; are problems with the product or the team persisting, accumulating, or getting resolved?)" - [James Bach](https://www.satisfice.com/blog/archives/487091)**
+
+---
 
 `Go Language` by itself is [a powerful and high-performance language built for scalability](https://go.dev/solutions/case-studies). It has many libraries that can be used to create automation, but there are some exploratory test strategies that can be more easily implemented (with less lines of code) using a `generic RPA framework` to complement the strengths of Go. For example, the following strategies are not easy to quickly create within a day or two using only pure Go Language code.
 - [Model-Based Tests using Graphwalker's visual .graphml files](https://graphwalker.github.io/), combined with Chaos Tests
