@@ -10,7 +10,7 @@ if [ "$1" == "Stop-Containers-And-Build-Docker-Container-With-Compose" ]; then
   echo "This will build the Docker image defined in the docker-compose.yml file. This run started on $TIMESTAMP."
   echo
   echo "Use this command to get Docker container IP addresses..."
-  echo "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}} name-of-the-docker-container"
+  echo "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' name-of-the-docker-container"
   echo
   echo "If you start running out of disk space, consider running this docker command. WARNING: Only use this command if you understand the risk..."
   echo "docker system prune -a"
